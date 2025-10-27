@@ -268,16 +268,16 @@ const sendEmail = async () => {
   try {
     // Configuration EmailJS
     // Remplace ces valeurs par tes vraies clés EmailJS
-    const serviceID = 'YOUR_SERVICE_ID'
-    const templateID = 'YOUR_TEMPLATE_ID'
-    const publicKey = 'YOUR_PUBLIC_KEY'
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
     const templateParams = {
       from_name: form.value.name,
       from_email: form.value.email,
       subject: form.value.subject,
       message: form.value.message,
-      to_name: 'Rodanim Ganaba' // Ton nom
+      to_name: 'Rodanim Ganaba'
     }
 
     await emailjs.send(serviceID, templateID, templateParams, publicKey)
@@ -293,7 +293,7 @@ const sendEmail = async () => {
     }
   } catch (error) {
     console.error('Erreur lors de l\'envoi:', error)
-    errorMessage.value = '❌ Une erreur est survenue. Veuillez réessayer ou me contacter directement par email.'
+    errorMessage.value = 'Une erreur est survenue. Veuillez réessayer ou me contacter directement par email.'
   } finally {
     isLoading.value = false
   }

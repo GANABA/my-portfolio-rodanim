@@ -208,7 +208,7 @@ export const projects = [
     ],
     technologies: ["Vue.js", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
     image: "../public/images/10.png",
-    githubLink: "https://github.com/mon-github/portfolio-gnb",
+    githubLink: "https://github.com/GANABA/my-portfolio-rodanim",
     liveLink: "https://ganaba-portfolio.vercel.app/",
     featured: true,
   },

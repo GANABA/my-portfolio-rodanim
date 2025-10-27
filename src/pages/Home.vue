@@ -20,7 +20,7 @@
               <span class="text-accent">Rodanim Ganaba</span>
             </h1>
             <p class="text-xl text-white font-semibold leading-relaxed">
-              Étudiant en BUT Informatique – Développement d'applications
+              Étudiant en BUT 3 Informatique – Développement d'applications
             </p>
             <p class="text-gray-400 text-lg">
               Passionné par la création de solutions innovantes et l'exploration de nouvelles technologies.
@@ -133,7 +133,7 @@
           <h2 class="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">
             Mes projets
           </h2>
-          <p class="text-gray-400 text-lg">Découvrez mes réalisations récentes</p>
+          <p class="text-gray-400 text-lg">Découvrez mes réalisations</p>
         </div>
 
         <!-- Grille de projets -->
