@@ -145,7 +145,7 @@
             </span>
           </router-link>
 
-          <a href="/public/CV Rodanim Ganaba.pdf" download
+          <a href="/CV Rodanim Ganaba.pdf" download
             class="inline-flex items-center justify-center px-10 py-5 border-2 border-accent text-accent font-bold rounded-lg hover:bg-accent hover:text-dark transition-all hover:scale-105">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

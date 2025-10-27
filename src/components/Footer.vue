@@ -7,7 +7,7 @@
         <div>
           <h3 class="text-xl font-bold mb-4 text-accent">Rodanim.</h3>
           <p class="text-gray-400 text-sm">
-            Étudiant en BUT Informatique passionné par le développement, l'IA et la data.
+            Étudiant en BUT 3 Informatique développement d'applications.
           </p>
         </div>
 

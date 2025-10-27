@@ -28,7 +28,7 @@
 
             <!-- Boutons CTA -->
             <div class="flex flex-wrap gap-4 pt-4">
-              <a href="/public/CV Rodanim Ganaba.pdf" download
+              <a href="/CV Rodanim Ganaba.pdf" download
                 class="group relative inline-flex items-center justify-center px-8 py-4 bg-accent text-dark font-bold rounded-lg overflow-hidden transition-all hover:scale-105 w-full sm:w-auto">
                 <span class="relative z-10 flex items-center">
                   <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

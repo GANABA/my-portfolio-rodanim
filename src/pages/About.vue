@@ -332,7 +332,7 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                    <a href="/public/CV Rodanim Ganaba.pdf" download
+                    <a href="/CV Rodanim Ganaba.pdf" download
                         class="group relative inline-flex items-center justify-center px-10 py-5 bg-accent text-dark font-bold rounded-lg overflow-hidden transition-all hover:scale-105 w-full sm:w-auto">
                         <span class="relative z-10 flex items-center">
                             <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
