@@ -32,7 +32,7 @@ export const projects = [
     image: "/images/6.png",
     githubLink:
       "https://github.com/GANABA/ai-learning-notebooks/tree/main/Collecte_Traitement/Traitement%20et%20nettoyage%20d'un%20jeu%20de%20donn%C3%A9es",
-    liveLink: "#",
+    liveLink: "",
     featured: false,
   },
   {
@@ -63,7 +63,7 @@ export const projects = [
     technologies: ["PHP", "MySQL", "JavaScript", "HTML", "CSS", "Bootstrap"],
     image: "/images/5.png",
     githubLink: "https://github.com/GANABA/TINA-HOTEL/tree/main",
-    liveLink: "#",
+    liveLink: "",
     featured: true,
   },
   {
@@ -91,7 +91,7 @@ export const projects = [
     image: "/images/4.png",
     githubLink:
       "https://github.com/GANABA/GPFE---projet-de-fin-de-formation-licence",
-    liveLink: "#",
+    liveLink: "",
     featured: true,
   },
   {
@@ -119,7 +119,7 @@ export const projects = [
     image: "/images/7.png",
     githubLink:
       "https://github.com/GANABA/ai-learning-notebooks/tree/main/Machine_Learning/prediction_ventes_f_budget_pub",
-    liveLink: "#",
+    liveLink: "",
     featured: true,
   },
   {
@@ -147,7 +147,7 @@ export const projects = [
     image: "/images/9.png",
     githubLink:
       "https://github.com/GANABA/Technique-d-IA/tree/main/TP2ClusteringParK-Means",
-    liveLink: "#",
+    liveLink: "",
     featured: false,
   },
   {
@@ -183,7 +183,7 @@ export const projects = [
     image: "/images/8.png",
     githubLink:
       "https://github.com/GANABA/Technique-d-IA/tree/main/TPClassification%20en%20Machine%20Learning",
-    liveLink: "#",
+    liveLink: "",
     featured: false,
   },
   {
@@ -209,7 +209,7 @@ export const projects = [
     technologies: ["Vue.js", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
     image: "/images/10.png",
     githubLink: "https://github.com/GANABA/my-portfolio-rodanim",
-    liveLink: "https://ganaba-portfolio.vercel.app/",
+    liveLink: "https://rodanim-ganaba.netlify.app/",
     featured: true,
   },
 ];
