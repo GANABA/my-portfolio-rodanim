@@ -41,7 +41,6 @@
 
               <div class="relative z-10">
                 <h2 class="text-3xl md:text-4xl font-bold text-accent mb-8 flex items-center gap-3">
-                  <span class="text-4xl">📧</span>
                   Envoyez-moi un message
                 </h2>
 
@@ -228,7 +227,6 @@
 
               <div class="relative z-10">
                 <div class="flex items-center gap-2 mb-3">
-                  <span class="text-3xl">💼</span>
                   <h3 class="font-bold text-white text-xl">Ouvert aux opportunités</h3>
                 </div>
                 <p class="text-gray-300 leading-relaxed">
