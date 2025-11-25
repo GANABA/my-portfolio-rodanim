@@ -1,6 +1,3 @@
-# ===== robots.txt =====
-# À placer dans /public/robots.txt
-
 User-agent: *
 Allow: /
 Disallow: /admin/
