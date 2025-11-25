@@ -120,7 +120,7 @@ export const projects = [
     githubLink:
       "https://github.com/GANABA/ai-learning-notebooks/tree/main/Machine_Learning/prediction_ventes_f_budget_pub",
     liveLink: "",
-    featured: true,
+    featured: false,
   },
   {
     id: 5,
@@ -210,6 +210,54 @@ export const projects = [
     image: "/images/10.png",
     githubLink: "https://github.com/GANABA/my-portfolio-rodanim",
     liveLink: "https://rodanim-ganaba.netlify.app/",
+    featured: false,
+  },
+  {
+    id: 8,
+    title: "ParkMR - Système IoT de Parkings Intelligents",
+    shortDescription:
+      "Système de gestion intelligente de places de parking réservées aux personnes à mobilité réduite, utilisant IoT, ML et une architecture distribuée complète.",
+    fullDescription:
+      "ParkMR est un projet académique ambitieux développé en équipe de 5 étudiants dans le cadre de la SAE BUT 3. L'objectif est de créer un système complet permettant aux usagers de localiser en temps réel les places PMR disponibles via une application mobile, tout en offrant aux gestionnaires un dashboard d'administration. Le projet combine IoT (microcontrôleurs pour la détection d'occupation), développement backend (serveur Java + API Node.js), machine learning (prédiction des pics d'affluence), et développement mobile (Flutter). Nous avons mis en place une chaîne CI/CD complète avec GitLab pour automatiser la compilation, les tests et le déploiement à chaque commit. Ce projet m'a permis de renforcer mes compétences en architecture distribuée, en automatisation DevOps, et en travail collaboratif avec méthodologies Agile (sprints, pair programming, feature branches).",
+    context:
+      "Projet académique réalisé en équipe dans le cadre de la SAE BUT Informatique 3ème année, avec un intervenant extérieur jouant le rôle de client réel.",
+    objectives: [
+      "Faciliter l'accès aux places PMR pour les personnes à mobilité réduite",
+      "Développer une architecture distribuée complète (IoT, Backend, Mobile, Dashboard)",
+      "Mettre en place une chaîne CI/CD robuste pour un travail d'équipe efficace",
+      "Appliquer les méthodologies Agile en conditions réelles",
+      "Intégrer du machine learning pour la prédiction d'affluence",
+    ],
+    features: [
+      "Capteurs IoT connectés via microcontrôleurs pour détection temps réel",
+      "API REST Node.js pour centralisation et gestion des données",
+      "Serveur backend Java (TCP) pour communication avec les microcontrôleurs",
+      "Application mobile Flutter avec géolocalisation et carte interactive",
+      "Dashboard administrateur Vue.js pour gestion et visualisation des données",
+      "Pipeline CI/CD GitLab automatisant tests, compilation et déploiement",
+      "Système de branches feature et pull requests pour collaboration sécurisée",
+      "Module ML pour prédiction des heures de pointe (Python, Scikit-learn)",
+    ],
+    technologies: [
+      "Node.js",
+      "Express.js",
+      "Java",
+      "Python",
+      "Flutter",
+      "Vue.js",
+      "MongoDB",
+      "GitLab CI/CD",
+      "IoT/Microcontrôleurs",
+      "Scikit-learn",
+      "Git",
+    ],
+    image: "/images/parkMR.png",
+    githubLink: "", //
+    liveLink: null,
     featured: true,
+    teamSize: 5,
+    role: "Développeur Backend & CI/CD",
+    duration: "Septembre 2025 - En cours",
+    methodology: "Agile/Scrum (sprints de 2 semaines)",
   },
 ];

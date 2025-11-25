@@ -136,9 +136,9 @@
           <!-- Informations de contact (2/5) -->
           <div class="lg:col-span-2 space-y-6">
 
-            <!-- Carte Email -->
-            <div
-              class="group relative bg-dark border border-accent/20 rounded-2xl p-6 hover:border-accent/50 hover:scale-105 transition-all duration-300 cursor-pointer overflow-hidden scroll-fade-in">
+            <!-- Carte Email - Entièrement cliquable -->
+            <a href="mailto:ganabarodanimkm@gmail.com"
+              class="group relative bg-dark border border-accent/20 rounded-2xl p-6 hover:border-accent/50 hover:scale-105 transition-all duration-300 cursor-pointer overflow-hidden scroll-fade-in block">
               <!-- Glow effect -->
               <div
                 class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500">
@@ -154,17 +154,40 @@
                 </div>
                 <div class="flex-1">
                   <h3 class="font-bold text-white text-lg mb-1">Email</h3>
-                  <a href="mailto:ganabarodanimkm@gmail.com"
-                    class="text-accent hover:text-white transition-colors break-all">
+                  <span class="text-accent group-hover:text-white transition-colors break-all">
                     ganabarodanimkm@gmail.com
-                  </a>
+                  </span>
                 </div>
               </div>
-            </div>
+            </a>
 
-            <!-- Carte GitHub -->
-            <div
-              class="group relative bg-dark border border-accent/20 rounded-2xl p-6 hover:border-accent/50 hover:scale-105 transition-all duration-300 cursor-pointer overflow-hidden scroll-fade-in"
+            <!-- Carte Téléphone - Entièrement cliquable -->
+            <a href="tel:+33753686116"
+              class="group relative bg-dark border border-accent/20 rounded-2xl p-6 hover:border-accent/50 hover:scale-105 transition-all duration-300 cursor-pointer overflow-hidden scroll-fade-in block">
+              <!-- Glow effect -->
+              <div
+                class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500">
+              </div>
+
+              <div class="relative z-10 flex items-start gap-4">
+                <div
+                  class="bg-accent/10 p-4 rounded-xl group-hover:scale-110 transition-transform border border-accent/30">
+                  <svg class="w-7 h-7 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <h3 class="font-bold text-white text-lg mb-1">Téléphone</h3>
+                  <span class="text-accent group-hover:text-white transition-colors break-all">
+                    +33 7 53 68 61 16
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Carte GitHub - Entièrement cliquable -->
+            <a href="https://github.com/GANABA" target="_blank" rel="noopener noreferrer"
+              class="group relative bg-dark border border-accent/20 rounded-2xl p-6 hover:border-accent/50 hover:scale-105 transition-all duration-300 cursor-pointer overflow-hidden scroll-fade-in block"
               style="animation-delay: 0.1s;">
               <!-- Glow effect -->
               <div
@@ -182,17 +205,16 @@
                 </div>
                 <div class="flex-1">
                   <h3 class="font-bold text-white text-lg mb-1">GitHub</h3>
-                  <a href="https://github.com/GANABA" target="_blank"
-                    class="text-accent hover:text-white transition-colors break-all">
+                  <span class="text-accent group-hover:text-white transition-colors break-all">
                     Ganaba
-                  </a>
+                  </span>
                 </div>
               </div>
-            </div>
+            </a>
 
-            <!-- Carte LinkedIn -->
-            <div
-              class="group relative bg-dark border border-accent/20 rounded-2xl p-6 hover:border-accent/50 hover:scale-105 transition-all duration-300 cursor-pointer overflow-hidden scroll-fade-in"
+            <!-- Carte LinkedIn - Entièrement cliquable -->
+            <a href="https://www.linkedin.com/in/ganaba-r-melchis%C3%A9dech/" target="_blank" rel="noopener noreferrer"
+              class="group relative bg-dark border border-accent/20 rounded-2xl p-6 hover:border-accent/50 hover:scale-105 transition-all duration-300 cursor-pointer overflow-hidden scroll-fade-in block"
               style="animation-delay: 0.2s;">
               <!-- Glow effect -->
               <div
@@ -210,13 +232,12 @@
                 </div>
                 <div class="flex-1">
                   <h3 class="font-bold text-white text-lg mb-1">LinkedIn</h3>
-                  <a href="https://www.linkedin.com/in/ganaba-r-melchis%C3%A9dech/" target="_blank"
-                    class="text-accent hover:text-white transition-colors break-all">
+                  <span class="text-accent group-hover:text-white transition-colors break-all">
                     Ganaba Rodanim
-                  </a>
+                  </span>
                 </div>
               </div>
-            </div>
+            </a>
 
             <!-- Message d'encouragement -->
             <div
@@ -265,7 +286,6 @@ const sendEmail = async () => {
 
   try {
     // Configuration EmailJS
-    // Remplace ces valeurs par tes vraies clés EmailJS
     const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID
     const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
@@ -280,7 +300,7 @@ const sendEmail = async () => {
 
     await emailjs.send(serviceID, templateID, templateParams, publicKey)
 
-    successMessage.value = '✅ Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.'
+    successMessage.value = 'Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.'
 
     // Réinitialiser le formulaire
     form.value = {

@@ -107,7 +107,7 @@
                     <div class="scroll-fade-in">
                         <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
                             <span class="w-2 h-8 bg-accent rounded-full"></span>
-                            Frameworks & Librairies
+                            Frameworks
                         </h3>
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                             <div v-for="(framework, index) in frameworks" :key="framework.name"

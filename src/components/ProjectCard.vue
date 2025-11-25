@@ -1,6 +1,6 @@
 <template>
-  <div
-    class="group relative bg-gray-dark rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 border border-gray-dark hover:border-accent/50">
+  <router-link :to="`/project/${project.id}`"
+    class="group relative block bg-gray-dark rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 border border-gray-dark">
     <!-- Image du projet -->
     <div class="relative h-56 overflow-hidden bg-dark/50">
       <img v-if="project.image" :src="project.image" :alt="project.title"
@@ -46,7 +46,7 @@
     <div
       class="absolute inset-0 border-2 border-transparent group-hover:border-accent/30 rounded-2xl transition-all pointer-events-none">
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script setup>
