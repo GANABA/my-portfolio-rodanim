@@ -1,0 +1,11 @@
+# ===== robots.txt =====
+# À placer dans /public/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /.git/
+
+Sitemap: https://rodanim-ganaba.netlify.app/sitemap.xml
+
+
