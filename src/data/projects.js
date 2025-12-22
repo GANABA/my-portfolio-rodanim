@@ -268,7 +268,7 @@ export const projects = [
     fullDescription:
       "Ce projet déploie un écosystème complet d'intelligence artificielle dédié à la gestion des finances personnelles. La partie prédictive repose sur un modèle LightGBM hautement optimisé (R² de 0.9452) capable d'estimer les dépenses mensuelles à partir de l'historique bancaire et de variables socio-économiques. En parallèle, un chatbot conversationnel intelligent, conçu avec LangChain et Mistral AI, permet d'extraire naturellement des données financières complexes d'une conversation pour alimenter le moteur de prédiction. L'architecture assure une cohérence totale entre la saisie par formulaire et le dialogue naturel, tout en fournissant des conseils personnalisés basés sur le profil utilisateur (Étudiant, Cadre, Famille, etc.).",
     context:
-      "Projet personnel de fin d'études axé sur l'intégration de modèles prédictifs tabulaires (ML) avec les capacités d'extraction et de synthèse des Large Language Models (LLM).",
+      "Ce projet axé sur l'intégration de modèles prédictifs tabulaires (ML) avec les capacités d'extraction et de synthèse des Large Language Models (LLM) a été développé dans le cadre d'un module de Machine Learning & IA pour démontrer l'intégration de modèles prédictifs classiques avec les capacités modernes des LLM.",
     objectives: [
       "Prédire avec précision les dépenses du mois t+1 (MAE de 198.60€)",
       "Extraire des entités financières structurées à partir de texte non structuré (NLP/LLM)",
