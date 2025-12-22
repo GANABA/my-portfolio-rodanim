@@ -260,4 +260,50 @@ export const projects = [
     duration: "Septembre 2025 - En cours",
     methodology: "Agile/Scrum (sprints de 2 semaines)",
   },
+  {
+    id: 9,
+    title: "Assistant Financier IA - Prédiction & Chatbot",
+    shortDescription:
+      "Solution hybride combinant Machine Learning (LightGBM) et IA Générative (Mistral AI) pour la prévision budgétaire et le conseil financier personnalisé.",
+    fullDescription:
+      "Ce projet déploie un écosystème complet d'intelligence artificielle dédié à la gestion des finances personnelles. La partie prédictive repose sur un modèle LightGBM hautement optimisé (R² de 0.9452) capable d'estimer les dépenses mensuelles à partir de l'historique bancaire et de variables socio-économiques. En parallèle, un chatbot conversationnel intelligent, conçu avec LangChain et Mistral AI, permet d'extraire naturellement des données financières complexes d'une conversation pour alimenter le moteur de prédiction. L'architecture assure une cohérence totale entre la saisie par formulaire et le dialogue naturel, tout en fournissant des conseils personnalisés basés sur le profil utilisateur (Étudiant, Cadre, Famille, etc.).",
+    context:
+      "Projet personnel de fin d'études axé sur l'intégration de modèles prédictifs tabulaires (ML) avec les capacités d'extraction et de synthèse des Large Language Models (LLM).",
+    objectives: [
+      "Prédire avec précision les dépenses du mois t+1 (MAE de 198.60€)",
+      "Extraire des entités financières structurées à partir de texte non structuré (NLP/LLM)",
+      "Maintenir une persistance de conversation pour un accompagnement budgétaire fluide",
+      "Générer des recommandations financières adaptées au profil socio-économique détecté",
+      "Optimiser un modèle de Gradient Boosting contre l'overfitting (écart Train/Val de 6€)"
+    ],
+    features: [
+      "Modèle de prédiction LightGBM optimisé avec RandomizedSearchCV",
+      "Pipeline d'ingénierie des caractéristiques (Lags, Moyennes mobiles, Saisonalité)",
+      "Chatbot intelligent avec mémoire de conversation intégré via LangChain",
+      "Extraction d'entités financières (Salaire, Loyer, Dépenses) via Pydantic et Mistral AI",
+      "Dashboard interactif Streamlit avec visualisations Plotly (jauges et répartition)",
+      "Système d'inférence de profil et de tier de consommation en temps réel",
+      "Génération automatique de conseils budgétaires personnalisés",
+    ],
+    technologies: [
+      "Python",
+      "LightGBM",
+      "Scikit-learn",
+      "LangChain",
+      "Mistral AI API",
+      "Pandas / Numpy",
+      "Streamlit",
+      "Plotly",
+      "Pydantic",
+      "Joblib",
+    ],
+    image: "/images/11.png",
+    githubLink: "https://github.com/bhl-christ/assistant-financier", 
+    liveLink: null,
+    featured: true,
+    teamSize: 1,
+    role: "Architecte IA & Développeur Fullstack",
+    duration: "Octobre 2025 - Décembre 2025",
+    methodology: "Recherche & Développement (Itérations basées sur les métriques de performance)",
+  },
 ];
