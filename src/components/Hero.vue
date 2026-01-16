@@ -149,7 +149,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 // Typing animation
-const texts = ['Full-Stack', 'IoT', 'Data & IA']
+const texts = ['Back-end', 'Data & IA']
 const typedText = ref('')
 let textIndex = 0
 let charIndex = 0

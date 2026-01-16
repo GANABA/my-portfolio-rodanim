@@ -30,18 +30,18 @@
                 pour progresser constamment et créer des solutions innovantes.
               </p>
               <p class="text-sm text-text-muted">
-                Au-delà du code, j'apprécie le travail d'équipe, le football, et le partage de connaissances.
+                Au-delà du code, j'apprécie le travail d'équipe, le football et le partage de connaissances.
               </p>
             </div>
 
             <!-- Right - Stats cards -->
             <div class="grid grid-cols-2 gap-4">
               <div class="card-modern text-center p-6">
-                <div class="text-4xl font-bold gradient-text mb-2">9+</div>
+                <div class="text-4xl font-bold gradient-text mb-2">5+</div>
                 <div class="text-text-muted text-sm">Projets réalisés</div>
               </div>
               <div class="card-modern text-center p-6">
-                <div class="text-4xl font-bold gradient-text mb-2">15+</div>
+                <div class="text-4xl font-bold gradient-text mb-2">7+</div>
                 <div class="text-text-muted text-sm">Technologies</div>
               </div>
               <div class="card-modern text-center p-6">
@@ -119,7 +119,7 @@
         
         <SectionHeader 
           badge="Portfolio"
-          title="Projets en vedette"
+          title="Projets"
           subtitle="Découvrez mes réalisations les plus abouties"
         />
 
