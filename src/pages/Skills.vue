@@ -46,7 +46,6 @@
                 <img :src="lang.icon" :alt="lang.name" class="w-16 h-16" />
               </div>
               <span class="text-text-primary font-semibold block mb-2">{{ lang.name }}</span>
-              <span class="text-text-muted text-xs">{{ lang.level }}</span>
             </div>
             
             <!-- Hover gradient -->
