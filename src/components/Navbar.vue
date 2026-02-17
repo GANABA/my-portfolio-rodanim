@@ -18,7 +18,7 @@
           <!-- Contact Link -->
           <a
             href="#contact"
-            class="hidden md:block font-mono text-sm tracking-wider hover:text-accent transition-colors"
+            class="font-mono text-xs sm:text-sm tracking-wider hover:text-accent transition-colors"
           >
             CONTACT
           </a>

@@ -76,10 +76,10 @@
 
           <div class="space-y-4 text-grey-600 text-base sm:text-lg leading-relaxed max-w-3xl">
             <p>
-              Actuellement en <strong class="text-dark">BUT 3 Informatique</strong>, je me spécialise dans le développement backend.
+              Actuellement en BUT 3 Informatique, je me spécialise dans le développement backend.
             </p>
             <p>
-              Passionné par l'intelligence artificielle, j'oriente mon parcours vers le <strong class="text-accent">développement IA</strong>,
+              Passionné par l'intelligence artificielle, j'oriente mon parcours vers le développement IA,
               en combinant mes compétences en développement avec le machine learning et la data science.
             </p>
           </div>
