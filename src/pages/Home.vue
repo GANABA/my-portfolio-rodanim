@@ -1,190 +1,225 @@
 <template>
-  <div class="bg-primary">
+  <div class="bg-light text-dark font-sans">
+
     <!-- Hero Section -->
-    <Hero />
+    <section class="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+      <!-- Decorative accent -->
+      <div class="absolute top-0 right-0 w-px h-full bg-grey-200"></div>
+      <div class="absolute bottom-0 left-0 w-full h-px bg-grey-200"></div>
 
-    <!-- Quick About Section -->
-    <section class="py-20 bg-secondary relative overflow-hidden">
-      <!-- Decorative elements -->
-      <div class="absolute top-0 left-0 w-72 h-72 bg-accent-blue/10 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent-purple/10 rounded-full blur-3xl"></div>
-      
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="max-w-4xl mx-auto">
-          
-          <SectionHeader 
-            badge="À propos"
-            title="Qui suis-je ?"
-            subtitle="Découvrez mon parcours et mes ambitions"
-          />
-
-          <div class="grid md:grid-cols-2 gap-8 items-center fade-in-section">
-            <!-- Left - Text -->
-            <div class="space-y-6 text-text-secondary leading-relaxed">
-              <p class="text-lg">
-                Étudiant en <span class="text-accent-blue font-semibold">BUT 3 Informatique</span> à l'IUT Nord Franche-Comté, 
-                j'explore activement le développement d'applications, l'IoT, et la Data Science.
-              </p>
-              <p>
-                Passionné par les nouvelles technologies, j'aime <span class="text-text-primary font-medium">relever de nouveaux défis techniques</span> 
-                pour progresser constamment et créer des solutions innovantes.
-              </p>
-              <p class="text-sm text-text-muted">
-                Au-delà du code, j'apprécie le travail d'équipe, le football et le partage de connaissances.
-              </p>
-            </div>
-
-            <!-- Right - Stats cards -->
-            <div class="grid grid-cols-2 gap-4">
-              <div class="card-modern text-center p-6">
-                <div class="text-4xl font-bold gradient-text mb-2">5+</div>
-                <div class="text-text-muted text-sm">Projets réalisés</div>
-              </div>
-              <div class="card-modern text-center p-6">
-                <div class="text-4xl font-bold gradient-text mb-2">7+</div>
-                <div class="text-text-muted text-sm">Technologies</div>
-              </div>
-              <div class="card-modern text-center p-6">
-                <div class="text-4xl font-bold gradient-text mb-2">3+</div>
-                <div class="text-text-muted text-sm">Années d'études</div>
-              </div>
-              <div class="card-modern text-center p-6">
-                <div class="text-4xl font-bold gradient-text mb-2">2</div>
-                <div class="text-text-muted text-sm">Stages pros</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- CTA -->
-          <div class="text-center mt-12 fade-in-section">
-            <router-link 
-              to="/about"
-              class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-primary text-white font-semibold rounded-xl hover:scale-105 transition-all hover:shadow-glow-lg"
-            >
-              En savoir plus sur moi
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </router-link>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Preview Section -->
-    <section class="py-20 bg-primary relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <SectionHeader 
-          badge="Stack Technique"
-          title="Compétences"
-          subtitle="Technologies et outils que j'utilise au quotidien"
-        />
-
-        <!-- Skills Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 fade-in-section">
-          <div 
-            v-for="(skill, index) in skillsPreview" 
-            :key="skill.name"
-            class="group card-modern text-center p-6 cursor-pointer"
-            :style="{ animationDelay: `${index * 50}ms` }"
-          >
-            <div class="mb-4 flex justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all">
-              <img :src="skill.icon" :alt="skill.name" class="w-16 h-16" />
-            </div>
-            <span class="text-text-primary font-medium text-sm">{{ skill.name }}</span>
-          </div>
+      <div class="max-w-6xl w-full">
+        <!-- Label -->
+        <div class="mb-8 opacity-0 animate-reveal" style="animation-delay: 0.2s;">
+          <span class="inline-flex items-center gap-2 text-sm font-mono tracking-wider text-grey-600">
+            <span class="w-8 h-px bg-accent"></span>
+            PORTFOLIO 2025
+          </span>
         </div>
 
-        <!-- CTA to skills page -->
-        <div class="text-center mt-12 fade-in-section">
-          <router-link 
-            to="/skills"
-            class="inline-flex items-center gap-2 px-8 py-4 glass hover:glass-strong text-text-primary font-semibold rounded-xl border border-accent-blue/20 hover:border-accent-blue/40 transition-all hover:scale-105"
-          >
-            Voir toutes mes compétences
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </router-link>
-        </div>
-      </div>
-    </section>
+        <!-- Main Title -->
+        <h1 class="text-6xl md:text-8xl lg:text-9xl font-sans font-bold leading-none mb-8 opacity-0 animate-reveal" style="animation-delay: 0.4s;">
+          Rodanim<br />
+          <span class="text-grey-400">Ganaba</span>
+        </h1>
 
-    <!-- Featured Projects Section -->
-    <section class="py-20 bg-secondary relative overflow-hidden">
-      <div class="absolute top-1/2 left-0 w-96 h-96 bg-accent-cyan/10 rounded-full blur-3xl"></div>
-      
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        <SectionHeader 
-          badge="Portfolio"
-          title="Projets"
-          subtitle="Découvrez mes réalisations les plus abouties"
-        />
-
-        <!-- Projects Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 fade-in-section">
-          <ProjectCard 
-            v-for="project in featuredProjects" 
-            :key="project.id" 
-            :project="project" 
-          />
+        <!-- Subtitle -->
+        <div class="max-w-2xl opacity-0 animate-reveal" style="animation-delay: 0.6s;">
+          <p class="text-xl md:text-2xl font-sans font-light text-grey-700 mb-12">
+            Développeur Web & Aspirant Développeur IA
+          </p>
         </div>
 
         <!-- CTA -->
-        <div class="text-center fade-in-section">
-          <router-link 
-            to="/projects"
-            class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-primary text-white font-semibold rounded-xl hover:scale-105 transition-all hover:shadow-glow-lg"
+        <div class="flex flex-wrap gap-4 opacity-0 animate-reveal" style="animation-delay: 0.8s;">
+          <a
+            href="#projets"
+            class="group px-8 py-4 bg-dark text-light border-2 border-dark font-mono text-sm tracking-wider hover:bg-transparent hover:text-dark transition-all duration-300 inline-flex items-center gap-3"
           >
-            Voir tous les projets
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            VOIR MES PROJETS
+            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </router-link>
+          </a>
+          <a
+            href="#contact"
+            class="px-8 py-4 border-2 border-dark text-dark font-mono text-sm tracking-wider hover:scale-105 transition-all duration-300"
+          >
+            CONTACT
+          </a>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style="animation-delay: 1.2s;">
+          <div class="flex flex-col items-center gap-2 text-grey-400">
+            <span class="text-xs font-mono tracking-widest">SCROLL</span>
+            <div class="w-px h-16 bg-grey-300 animate-pulse"></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact CTA Section -->
-    <section class="py-20 bg-primary relative overflow-hidden">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(96,165,250,0.1),transparent_70%)]"></div>
-      
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <div class="card-modern p-12 fade-in-section">
-          
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
-            <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-            <span class="text-text-secondary text-sm font-medium">Disponible pour de nouvelles opportunités</span>
+    <!-- About Section -->
+    <section id="about" class="py-32 px-6 border-t border-grey-200">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-start">
+        <!-- Left - Label -->
+        <div class="md:col-span-3">
+          <span class="inline-block font-mono text-sm tracking-widest text-grey-500 mb-4">
+            01 — À PROPOS
+          </span>
+        </div>
+
+        <!-- Right - Content -->
+        <div class="md:col-span-9 space-y-8">
+          <h2 class="text-4xl md:text-5xl font-sans font-bold leading-tight">
+            Développeur passionné par la création d'applications web et l'exploration de l'IA
+          </h2>
+
+          <div class="space-y-4 text-grey-600 text-lg leading-relaxed max-w-3xl">
+            <p>
+              Actuellement en <strong class="text-dark">BUT 3 Informatique</strong>, je me spécialise dans le développement backend.
+            </p>
+            <p>
+              Passionné par l'intelligence artificielle, j'oriente mon parcours vers le <strong class="text-accent">développement IA</strong>,
+              en combinant mes compétences en développement avec le machine learning et la data science.
+            </p>
           </div>
 
-          <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-6">
-            Travaillons ensemble !
-          </h2>
-          
-          <p class="text-xl text-text-secondary mb-10 max-w-2xl mx-auto">
-            Un projet en tête ? Une question ? N'hésitez pas à me contacter, je serai ravi d'échanger avec vous.
-          </p>
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-8 pt-8 border-t border-grey-200">
+            <div>
+              <div class="text-4xl font-mono font-bold text-accent mb-2">9</div>
+              <div class="text-sm text-grey-600 font-mono tracking-wide">PROJETS</div>
+            </div>
+            <div>
+              <div class="text-4xl font-mono font-bold text-accent mb-2">3+</div>
+              <div class="text-sm text-grey-600 font-mono tracking-wide">ANNÉES</div>
+            </div>
+            <div>
+              <div class="text-4xl font-mono font-bold text-accent mb-2">10+</div>
+              <div class="text-sm text-grey-600 font-mono tracking-wide">TECHNOS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a 
-              href="mailto:ganabarodanimkm@gmail.com"
-              class="group px-8 py-4 bg-gradient-primary text-white font-semibold rounded-xl hover:scale-105 transition-all hover:shadow-glow-lg inline-flex items-center gap-2"
+    <!-- Skills Section -->
+    <section id="competences" class="py-32 px-6 border-t border-grey-200">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12">
+        <!-- Left - Label -->
+        <div class="md:col-span-3">
+          <span class="inline-block font-mono text-sm tracking-widest text-grey-500 mb-4">
+            02 — COMPÉTENCES
+          </span>
+        </div>
+
+        <!-- Right - Skills -->
+        <div class="md:col-span-9">
+          <h2 class="text-4xl md:text-5xl font-sans font-bold mb-16">Stack Technique</h2>
+
+          <div class="space-y-12">
+            <!-- Web Development -->
+            <div>
+              <h3 class="text-sm font-mono tracking-widest text-grey-500 mb-6">DÉVELOPPEMENT WEB</h3>
+              <div class="flex flex-wrap gap-3">
+                <span v-for="tech in webTechs" :key="tech"
+                  class="px-4 py-2 border border-grey-300 text-dark font-mono text-sm hover:border-accent hover:text-accent transition-colors">
+                  {{ tech }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Data & IA -->
+            <div>
+              <h3 class="text-sm font-mono tracking-widest text-grey-500 mb-6">DATA SCIENCE & IA</h3>
+              <div class="flex flex-wrap gap-3">
+                <span v-for="tech in dataTechs" :key="tech"
+                  class="px-4 py-2 border border-grey-300 text-dark font-mono text-sm hover:border-accent hover:text-accent transition-colors">
+                  {{ tech }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Tools -->
+            <div>
+              <h3 class="text-sm font-mono tracking-widest text-grey-500 mb-6">OUTILS & AUTRES</h3>
+              <div class="flex flex-wrap gap-3">
+                <span v-for="tech in toolsTechs" :key="tech"
+                  class="px-4 py-2 border border-grey-300 text-dark font-mono text-sm hover:border-accent hover:text-accent transition-colors">
+                  {{ tech }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projets" class="py-32 px-6 border-t border-grey-200">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12">
+        <!-- Left - Label -->
+        <div class="md:col-span-3">
+          <span class="inline-block font-mono text-sm tracking-widest text-grey-500 mb-4">
+            03 — PROJETS
+          </span>
+        </div>
+
+        <!-- Right - Projects List -->
+        <div class="md:col-span-9">
+          <h2 class="text-4xl md:text-5xl font-sans font-bold mb-16">Réalisations</h2>
+
+          <!-- Projects -->
+          <div class="space-y-8">
+            <a
+              v-for="(project, index) in featuredProjects"
+              :key="project.id"
+              @click.prevent="handleProjectClick(project.id)"
+              class="group block border-t border-grey-200 pt-8 cursor-pointer"
             >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-              </svg>
-              Envoyer un email
+              <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+                <!-- Left - Info -->
+                <div class="flex-1">
+                  <div class="flex items-start gap-4 mb-4">
+                    <span class="font-mono text-sm text-grey-400 mt-1">0{{ index + 1 }}</span>
+                    <div class="flex-1">
+                      <h3 class="text-2xl md:text-3xl font-sans font-bold mb-3 group-hover:text-accent transition-colors">
+                        {{ project.title }}
+                      </h3>
+                      <p class="text-grey-600 mb-4 leading-relaxed">
+                        {{ project.shortDescription }}
+                      </p>
+                      <div class="flex flex-wrap gap-2">
+                        <span v-for="tech in project.technologies.slice(0, 4)" :key="tech"
+                          class="px-3 py-1 text-xs font-mono border border-grey-300 text-grey-600">
+                          {{ tech }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right - Arrow -->
+                <div class="md:mt-1">
+                  <div class="w-12 h-12 border border-grey-300 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all">
+                    <svg class="w-6 h-6 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-grey-600 group-hover:text-dark"
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </a>
+          </div>
 
-            <router-link 
-              to="/contact"
-              class="px-8 py-4 glass hover:glass-strong text-text-primary font-semibold rounded-xl border border-accent-blue/20 hover:border-accent-blue/40 transition-all hover:scale-105 inline-flex items-center gap-2"
+          <!-- View All Projects -->
+          <div class="mt-16 pt-8 border-t border-grey-200">
+            <router-link
+              to="/projects"
+              class="inline-flex items-center gap-3 font-mono text-sm tracking-wider hover:text-accent transition-colors group"
             >
-              Formulaire de contact
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              VOIR TOUS LES PROJETS
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </router-link>
@@ -192,49 +227,117 @@
         </div>
       </div>
     </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-6 border-t border-grey-200">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12">
+        <!-- Left - Label -->
+        <div class="md:col-span-3">
+          <span class="inline-block font-mono text-sm tracking-widest text-grey-500 mb-4">
+            04 — CONTACT
+          </span>
+        </div>
+
+        <!-- Right - Contact Info -->
+        <div class="md:col-span-9">
+          <h2 class="text-4xl md:text-5xl font-sans font-bold mb-8">
+            Discutons de votre projet
+          </h2>
+
+          <p class="text-xl text-grey-600 mb-16 max-w-2xl">
+            Je suis disponible pour des projets freelance, stages ou opportunités professionnelles.
+          </p>
+
+          <!-- Contact Methods -->
+          <div class="space-y-6 mb-16">
+            <a
+              href="mailto:ganabarodanimkm@gmail.com"
+              class="group flex items-center gap-4 text-2xl font-sans hover:text-accent transition-colors"
+            >
+              <span class="w-8 h-px bg-grey-300 group-hover:bg-accent group-hover:w-16 transition-all"></span>
+              ganabarodanimkm@gmail.com
+            </a>
+            <a
+              href="tel:+33753686116"
+              class="group flex items-center gap-4 text-2xl font-sans hover:text-accent transition-colors"
+            >
+              <span class="w-8 h-px bg-grey-300 group-hover:bg-accent group-hover:w-16 transition-all"></span>
+              +33 7 53 68 61 16
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="flex gap-6">
+            <a
+              href="https://github.com/GANABA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-mono text-sm tracking-wider hover:text-accent transition-colors"
+            >
+              GITHUB
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ganaba-r-melchis%C3%A9dech/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-mono text-sm tracking-wider hover:text-accent transition-colors"
+            >
+              LINKEDIN
+            </a>
+            <a
+              href="/CV Rodanim Ganaba.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-mono text-sm tracking-wider hover:text-accent transition-colors"
+            >
+              CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-grey-200">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-grey-500 font-mono">
+          © 2025 Rodanim Ganaba
+        </p>
+        <p class="text-sm text-grey-500 font-mono">
+          Développé avec Vue.js & Tailwind CSS
+        </p>
+      </div>
+    </footer>
+
   </div>
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
-import Hero from '../components/Hero.vue'
-import SectionHeader from '../components/SectionHeader.vue'
-import ProjectCard from '../components/ProjectCard.vue'
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 import { projects } from '../data/projects.js'
 
-// Projets en vedette
+const router = useRouter()
+
+// Projets en vedette (top 5)
 const featuredProjects = computed(() => {
-  return projects.filter(p => p.featured).slice(0, 3)
+  return projects.filter(p => p.featured).slice(0, 5)
 })
 
-// Aperçu des compétences (6 principales)
-const skillsPreview = [
-  { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
-  { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-  { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
-  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-  { name: 'Vue.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
-  { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-]
+// Compétences organisées
+const webTechs = ['PHP', 'Laravel', 'Java', 'Spring Boot', 'Vue.js (bases)', 'Node.js (bases)', 'MySQL', 'MongoDB']
+const dataTechs = ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'TensorFlow', 'LangChain', 'Matplotlib']
+const toolsTechs = ['Git', 'GitLab CI/CD', 'Docker', 'Postman', 'Vite']
 
-// Animation au scroll
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible')
-        }
-      })
-    },
-    {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px',
-    }
-  )
-
-  document.querySelectorAll('.fade-in-section').forEach((el) => {
-    observer.observe(el)
-  })
-})
+// Navigation vers détail projet
+const handleProjectClick = (projectId) => {
+  router.push(`/project/${projectId}`)
+}
 </script>
+
+<style scoped>
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+</style>

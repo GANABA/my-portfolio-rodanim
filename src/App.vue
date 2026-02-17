@@ -1,16 +1,27 @@
 <template>
-  <div class="min-h-screen flex flex-col bg-primary">
+  <div class="min-h-screen">
     <Navbar />
-    
-    <main class="flex-grow">
+
+    <main>
       <router-view />
     </main>
-    
-    <Footer />
   </div>
 </template>
 
 <script setup>
 import Navbar from './components/Navbar.vue'
-import Footer from './components/Footer.vue'
 </script>
+
+<style>
+/* Smooth scroll global */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+</style>
