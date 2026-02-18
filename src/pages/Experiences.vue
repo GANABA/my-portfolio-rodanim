@@ -1,297 +1,379 @@
 <template>
-  <div class="min-h-screen bg-primary">
-    
-    <!-- Hero Section -->
-    <section class="relative py-20 bg-secondary overflow-hidden">
-      <div class="absolute top-10 right-20 w-96 h-96 bg-accent-purple/20 rounded-full blur-3xl animate-pulse"></div>
-      <div class="absolute bottom-10 left-20 w-80 h-80 bg-accent-blue/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
-      
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
-          <div class="w-2 h-2 rounded-full bg-accent-purple animate-pulse"></div>
-          <span class="text-accent-purple text-sm font-semibold tracking-wider uppercase">Mon Parcours</span>
+  <div class="bg-light text-dark font-sans min-h-screen">
+
+    <!-- Hero -->
+    <section class="py-16 sm:py-24 md:py-32 px-4 sm:px-6 border-b border-grey-200">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-8 md:gap-12 items-end">
+        <div class="md:col-span-3">
+          <span class="inline-block font-mono text-xs sm:text-sm tracking-widest text-grey-500">
+            05 — PARCOURS
+          </span>
         </div>
-        
-        <h1 class="text-5xl md:text-6xl font-bold text-text-primary mb-6 animate-slide-in">
-          Expériences <span class="gradient-text">& Formation</span>
-        </h1>
-        
-        <p class="text-text-secondary text-xl max-w-3xl mx-auto animate-slide-in" style="animation-delay: 0.1s;">
-          Mon parcours académique et professionnel qui a façonné mes compétences
-        </p>
-      </div>
-    </section>
-
-    <!-- Expériences Professionnelles -->
-    <section class="py-20 bg-primary">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="mb-16 text-center fade-in-section">
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-4">
-            <span class="text-accent-blue text-sm font-semibold tracking-wider uppercase">Expérience Pro</span>
-          </div>
-          <h2 class="text-4xl font-bold text-text-primary mb-4">Expériences Professionnelles</h2>
-          <p class="text-text-secondary">Stages et projets en entreprise</p>
-        </div>
-
-        <!-- Timeline -->
-        <div class="relative">
-          <!-- Ligne verticale centrale -->
-          <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-accent-blue via-accent-purple to-transparent"></div>
-          
-          <div class="space-y-12">
-            <div 
-              v-for="(exp, index) in experiences" 
-              :key="index"
-              class="relative fade-in-section"
-            >
-              <!-- Point sur la timeline -->
-              <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-primary border-4 border-primary z-10"></div>
-              
-              <!-- Carte expérience -->
-              <div 
-                class="card-modern p-8 hover:scale-[1.02] transition-all"
-                :class="index % 2 === 0 ? 'md:mr-[calc(50%+3rem)]' : 'md:ml-[calc(50%+3rem)]'"
-              >
-                <!-- Badge période -->
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass mb-4">
-                  <svg class="w-4 h-4 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <span class="text-accent-blue text-sm font-semibold">{{ exp.period }}</span>
-                </div>
-
-                <!-- Titre & entreprise -->
-                <h3 class="text-2xl font-bold text-text-primary mb-2">{{ exp.title }}</h3>
-                <p class="text-accent-blue font-semibold mb-4 flex items-center gap-2">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                  {{ exp.institution }}
-                </p>
-
-                <!-- Description -->
-                <p class="text-text-secondary mb-6 leading-relaxed">
-                  {{ exp.description }}
-                </p>
-
-                <!-- Réalisations -->
-                <div class="space-y-3">
-                  <h4 class="text-sm font-semibold text-text-primary flex items-center gap-2">
-                    <div class="w-1 h-4 bg-gradient-primary rounded-full"></div>
-                    Réalisations clés
-                  </h4>
-                  <ul class="space-y-2">
-                    <li 
-                      v-for="highlight in exp.highlights" 
-                      :key="highlight"
-                      class="flex items-start gap-3 text-text-secondary text-sm"
-                    >
-                      <svg class="w-5 h-5 text-accent-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>{{ highlight }}</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <!-- Technologies utilisées (si disponibles) -->
-                <div v-if="exp.technologies" class="mt-6 flex flex-wrap gap-2">
-                  <span 
-                    v-for="tech in exp.technologies" 
-                    :key="tech"
-                    class="px-3 py-1 glass text-xs font-medium text-text-primary rounded-lg"
-                  >
-                    {{ tech }}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Formation Académique -->
-    <section class="py-20 bg-secondary">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="mb-16 text-center fade-in-section">
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-4">
-            <span class="text-accent-purple text-sm font-semibold tracking-wider uppercase">Cursus</span>
-          </div>
-          <h2 class="text-4xl font-bold text-text-primary mb-4">Formation Académique</h2>
-          <p class="text-text-secondary">Mon parcours universitaire</p>
-        </div>
-
-        <!-- Timeline formation -->
-        <div class="relative">
-          <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-accent-purple via-accent-blue to-transparent"></div>
-          
-          <div class="space-y-12">
-            <div 
-              v-for="(edu, index) in education" 
-              :key="index"
-              class="relative fade-in-section"
-            >
-              <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-accent-purple to-accent-blue border-4 border-secondary z-10"></div>
-              
-              <div 
-                class="card-modern p-8 hover:scale-[1.02] transition-all"
-                :class="index % 2 === 0 ? 'md:mr-[calc(50%+3rem)]' : 'md:ml-[calc(50%+3rem)]'"
-              >
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass mb-4">
-                  <svg class="w-4 h-4 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                  </svg>
-                  <span class="text-accent-purple text-sm font-semibold">{{ edu.period }}</span>
-                </div>
-
-                <h3 class="text-2xl font-bold text-text-primary mb-2">{{ edu.title }}</h3>
-                <p class="text-accent-purple font-semibold mb-4 flex items-center gap-2">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                  {{ edu.institution }}
-                </p>
-
-                <p class="text-text-secondary mb-6 leading-relaxed">
-                  {{ edu.description }}
-                </p>
-
-                <div class="space-y-3">
-                  <h4 class="text-sm font-semibold text-text-primary flex items-center gap-2">
-                    <div class="w-1 h-4 bg-gradient-to-r from-accent-purple to-accent-blue rounded-full"></div>
-                    Compétences acquises
-                  </h4>
-                  <ul class="space-y-2">
-                    <li 
-                      v-for="highlight in edu.highlights" 
-                      :key="highlight"
-                      class="flex items-start gap-3 text-text-secondary text-sm"
-                    >
-                      <svg class="w-5 h-5 text-accent-purple flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>{{ highlight }}</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 bg-primary">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-section">
-        <div class="card-modern p-12">
-          <h2 class="text-3xl font-bold text-text-primary mb-6">
-            Envie d'en savoir plus ?
-          </h2>
-          <p class="text-text-secondary mb-8">
-            Téléchargez mon CV complet ou contactez-moi pour échanger
+        <div class="md:col-span-9">
+          <h1 class="text-4xl sm:text-5xl md:text-7xl font-sans font-bold leading-none mb-6">
+            Formations<br />
+            <span class="text-grey-400">&amp; Expériences</span>
+          </h1>
+          <p class="text-base sm:text-lg text-grey-600 max-w-2xl">
+            Chaque étape a construit une compétence. Du Bénin à la France, un parcours orienté vers le développement logiciel et l'intelligence artificielle.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="/CV Rodanim Ganaba.pdf" 
-              download
-              class="px-8 py-4 bg-gradient-primary text-white font-semibold rounded-xl hover:scale-105 transition-all hover:shadow-glow-lg inline-flex items-center justify-center gap-2"
+        </div>
+      </div>
+    </section>
+
+    <!-- Onglets -->
+    <div class="sticky top-16 sm:top-20 z-20 bg-light/90 backdrop-blur-md border-b border-grey-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex">
+          <button
+            @click="activeTab = 'stages'"
+            :class="activeTab === 'stages'
+              ? 'border-b-2 border-accent text-accent'
+              : 'text-grey-500 hover:text-dark'"
+            class="font-mono text-xs tracking-widest py-4 px-4 sm:px-6 transition-colors duration-200"
+          >
+            STAGES
+          </button>
+          <button
+            @click="activeTab = 'formation'"
+            :class="activeTab === 'formation'
+              ? 'border-b-2 border-accent text-accent'
+              : 'text-grey-500 hover:text-dark'"
+            class="font-mono text-xs tracking-widest py-4 px-4 sm:px-6 transition-colors duration-200"
+          >
+            PARCOURS ACADÉMIQUE
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================
+         STAGES
+    ========================= -->
+    <section v-show="activeTab === 'stages'" class="py-16 sm:py-24 px-4 sm:px-6">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-8 md:gap-12">
+        <div class="md:col-span-3">
+          <span class="font-mono text-xs tracking-widest text-grey-500">EXPÉRIENCES EN ENTREPRISE</span>
+        </div>
+        <div class="md:col-span-9 space-y-0">
+          <div
+            v-for="(exp, index) in experiences"
+            :key="index"
+            class="group border-t border-grey-200 py-10 sm:py-14"
+          >
+            <div class="flex items-start gap-4 sm:gap-6 mb-6">
+              <span class="font-mono text-xs text-grey-400 mt-1 shrink-0">0{{ index + 1 }}</span>
+              <div class="flex-1">
+                <div class="flex flex-wrap items-center gap-3 mb-2">
+                  <span
+                    class="font-mono text-xs tracking-wider px-2 py-0.5 border"
+                    :class="exp.current ? 'border-accent text-accent' : 'border-grey-300 text-grey-500'"
+                  >
+                    {{ exp.current ? 'EN COURS' : 'TERMINÉ' }}
+                  </span>
+                  <span class="font-mono text-xs text-grey-400">{{ exp.period }}</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-sans font-bold group-hover:text-accent transition-colors">
+                  {{ exp.title }}
+                </h2>
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-sm text-grey-600">
+                  <span class="font-mono tracking-wide">{{ exp.institution }}</span>
+                  <span v-if="exp.location" class="text-grey-400">{{ exp.location }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ml-10 space-y-6">
+              <p class="text-grey-600 leading-relaxed">{{ exp.description }}</p>
+
+              <div>
+                <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-4">MISSIONS & RÉALISATIONS</h4>
+                <ul class="space-y-2">
+                  <li
+                    v-for="item in exp.highlights"
+                    :key="item"
+                    class="flex items-start gap-3 text-sm text-grey-700"
+                  >
+                    <span class="mt-2 w-4 h-px bg-accent shrink-0 inline-block"></span>
+                    {{ item }}
+                  </li>
+                </ul>
+              </div>
+
+              <div v-if="exp.technologies">
+                <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-3">TECHNOLOGIES</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    v-for="tech in exp.technologies"
+                    :key="tech"
+                    class="px-3 py-1 border border-grey-300 text-dark font-mono text-xs hover:border-accent hover:text-accent transition-colors"
+                  >{{ tech }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-grey-200"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================
+         FORMATION
+    ========================= -->
+    <section v-show="activeTab === 'formation'" class="py-16 sm:py-24 px-4 sm:px-6">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-8 md:gap-12">
+        <div class="md:col-span-3">
+          <span class="font-mono text-xs tracking-widest text-grey-500">CURSUS UNIVERSITAIRE</span>
+        </div>
+        <div class="md:col-span-9 space-y-0">
+          <div
+            v-for="(edu, index) in education"
+            :key="index"
+            class="group border-t border-grey-200 py-10 sm:py-14"
+          >
+            <div class="flex items-start gap-4 sm:gap-6 mb-6">
+              <span class="font-mono text-xs text-grey-400 mt-1 shrink-0">0{{ index + 1 }}</span>
+              <div class="flex-1">
+                <div class="flex flex-wrap items-center gap-3 mb-2">
+                  <span
+                    class="font-mono text-xs tracking-wider px-2 py-0.5 border"
+                    :class="edu.current ? 'border-accent text-accent' : 'border-grey-300 text-grey-500'"
+                  >
+                    {{ edu.current ? 'EN COURS' : 'DIPLÔME OBTENU' }}
+                  </span>
+                  <span class="font-mono text-xs text-grey-400">{{ edu.period }}</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-sans font-bold group-hover:text-accent transition-colors">
+                  {{ edu.title }}
+                </h2>
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-sm text-grey-600">
+                  <span class="font-mono tracking-wide">{{ edu.institution }}</span>
+                  <span v-if="edu.location" class="text-grey-400">{{ edu.location }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ml-10 space-y-6">
+              <p class="text-grey-600 leading-relaxed">{{ edu.description }}</p>
+
+              <div>
+                <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-4">COMPÉTENCES DÉVELOPPÉES</h4>
+                <ul class="space-y-2">
+                  <li
+                    v-for="item in edu.highlights"
+                    :key="item"
+                    class="flex items-start gap-3 text-sm text-grey-700"
+                  >
+                    <span class="mt-2 w-4 h-px bg-accent shrink-0 inline-block"></span>
+                    {{ item }}
+                  </li>
+                </ul>
+              </div>
+
+              <div v-if="edu.modules">
+                <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-3">MODULES CLÉS</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    v-for="mod in edu.modules"
+                    :key="mod"
+                    class="px-3 py-1 border border-grey-300 text-dark font-mono text-xs hover:border-accent hover:text-accent transition-colors"
+                  >{{ mod }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-grey-200"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Soft Skills -->
+    <section class="py-16 sm:py-24 px-4 sm:px-6 border-t border-grey-200 bg-grey-50">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-8 md:gap-12">
+        <div class="md:col-span-3">
+          <span class="font-mono text-xs tracking-widest text-grey-500">SOFT SKILLS</span>
+        </div>
+        <div class="md:col-span-9">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-10">Qualités humaines</h2>
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div
+              v-for="skill in softSkills"
+              :key="skill.label"
+              class="flex items-start gap-4 group"
             >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Télécharger mon CV
-            </a>
-            <router-link 
-              to="/contact"
-              class="px-8 py-4 glass hover:glass-strong text-text-primary font-semibold rounded-xl border border-accent-blue/20 hover:border-accent-blue/40 transition-all"
-            >
-              Me contacter
-            </router-link>
+              <div class="mt-1 w-8 h-8 border border-grey-300 flex items-center justify-center shrink-0 group-hover:border-accent group-hover:text-accent transition-colors">
+                <span class="font-mono text-xs">{{ skill.icon }}</span>
+              </div>
+              <div>
+                <h3 class="font-sans font-semibold text-dark group-hover:text-accent transition-colors mb-1">{{ skill.label }}</h3>
+                <p class="text-sm text-grey-600 leading-relaxed">{{ skill.description }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- CTA -->
+    <section class="py-16 sm:py-24 px-4 sm:px-6 border-t border-grey-200">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+        <div class="md:col-span-3">
+          <span class="font-mono text-xs tracking-widest text-grey-500">CONTACT</span>
+        </div>
+        <div class="md:col-span-9">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Une opportunité à me proposer ?</h2>
+          <p class="text-grey-600 mb-8 max-w-xl">
+            Je suis disponible pour des stages, alternances ou projets freelance.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="/CV Rodanim Ganaba.pdf"
+              download
+              class="group inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-dark text-light border-2 border-dark font-mono text-xs tracking-wider hover:bg-transparent hover:text-dark transition-all duration-300"
+            >
+              TÉLÉCHARGER MON CV
+              <svg class="w-4 h-4 transform group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+            </a>
+            <a
+              href="mailto:ganabarodanimkm@gmail.com"
+              class="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 border-2 border-dark text-dark font-mono text-xs tracking-wider hover:bg-dark hover:text-light transition-all duration-300"
+            >
+              ME CONTACTER
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { ref } from 'vue'
+
+const activeTab = ref('stages')
 
 const experiences = [
   {
-    title: 'Stage Développeur Web',
-    institution: 'Light Innovation',
-    period: 'Novembre 2024 - Février 2025',
-    description: 'Développement d\'une application web complète de réservation de chambres d\'hôtel avec interface client et panneau d\'administration.',
+    title: 'Développeur Applications & Agents IA',
+    institution: 'Faurecia Clean Mobility',
+    location: 'France',
+    period: 'Fév. 2026 – Présent',
+    current: true,
+    description: 'Stage de fin d\'études du BUT3. Participation à la conception, au développement et à l\'amélioration d\'agents IA internes et d\'applications dédiées aux ingénieurs, au sein des équipes engineering et digitales.',
     highlights: [
-      'Analyse des besoins clients et conception de l\'architecture',
-      'Développement front-end avec HTML, CSS, Bootstrap, JavaScript',
-      'Implémentation back-end avec PHP et MySQL',
-      'Gestion des réservations en temps réel et système d\'avis clients'
+      'Investigation, conception et amélioration d\'agents IA internes destinés à soutenir les ingénieurs',
+      'Développement et amélioration d\'applications dédiées à l\'engineering',
+      'Contribution au pilotage des projets IA : spécification, suivi, reporting',
+      'Interactions avec les équipes engineering et digitales',
+      'Identification des problématiques, formalisation des besoins et proposition de solutions IA innovantes',
     ],
-    technologies: ['PHP', 'MySQL', 'JavaScript', 'Bootstrap', 'HTML/CSS']
+    technologies: ['Python', 'LangChain', 'Agents IA', 'LLM', 'API REST', 'Sinequa'],
   },
   {
-    title: 'Stage académique - Développement logiciel',
-    institution: 'CABRO GROUP SARL',
-    period: 'Avril 2024 - Juillet 2024',
-    description: 'Développement en binôme d\'une application web de gestion de projets de fin d\'études pour un établissement universitaire.',
+    title: 'Développeur Web Full-Stack',
+    institution: 'Light Innovation',
+    location: 'Parakou, Bénin',
+    period: 'Nov. 2024 – Fév. 2025',
+    current: false,
+    description: 'Conception et développement complet d\'une application web de réservation de chambres d\'hôtel avec interface client et panneau d\'administration.',
     highlights: [
-      'Rédaction du cahier des charges et analyse des besoins',
-      'Modélisation de la base de données',
-      'Implémentation back-end de l\'application',
-      'Gestion des binômes et affectation des encadreurs'
+      'Analyse des besoins clients et conception de l\'architecture applicative',
+      'Développement front-end avec HTML, CSS, Bootstrap et JavaScript',
+      'Implémentation du back-end : PHP, MySQL, gestion des sessions et authentification',
+      'Système de réservation en temps réel avec gestion des disponibilités',
+      'Panneau d\'administration et système d\'avis clients',
     ],
-    technologies: ['PHP', 'MySQL', 'JavaScript', 'Bootstrap']
+    technologies: ['PHP', 'MySQL', 'JavaScript', 'Bootstrap', 'HTML/CSS'],
+  },
+  {
+    title: 'Anayste Programmeur',
+    institution: 'CABRO GROUP SARL',
+    location: 'Parakou, Bénin',
+    period: 'Avr. 2024 – Juil. 2024',
+    current: false,
+    description: 'Développement en binôme d\'une application web de gestion des projets de fin d\'études pour un établissement universitaire.',
+    highlights: [
+      'Rédaction du cahier des charges et analyse des besoins fonctionnels',
+      'Modélisation de la base de données (MCD)',
+      'Développement back-end complet avec PHP et MySQL',
+      'Gestion des binômes étudiants et affectation des encadreurs',
+      'Soutenance du projet devant le jury',
+    ],
+    technologies: ['PHP', 'MySQL', 'JavaScript', 'Bootstrap', 'UML'],
   },
 ]
 
 const education = [
   {
-    title: 'BUT 3 Informatique - Développement d\'applications',
+    title: 'BUT 3 Informatique – Développement d\'applications',
     institution: 'IUT Nord Franche-Comté',
-    period: '2025 - Présent',
-    description: 'Formation approfondie en développement d\'applications avec focus sur les méthodologies agiles, l\'IoT et l\'intelligence artificielle.',
+    location: 'Belfort, France',
+    period: '2025 – Présent',
+    current: true,
+    description: 'Formation bac+3 orientée développement logiciel avancé, IoT et intelligence artificielle. Projets réels en équipe avec méthodologies agiles.',
     highlights: [
-      'Développement full-stack (front-end et back-end)',
-      'Gestion de projets avec méthodologies Agile/Scrum',
-      'IoT et systèmes embarqués',
-      'Techniques d\'Intelligence Artificielle et Machine Learning',
-      'Réseaux, virtualisation et DevOps'
-    ]
+      'Développement full-stack : Vue.js, Spring Boot, Laravel, Node.js',
+      'Architecture logicielle et design patterns',
+      'Gestion de projets Agile/Scrum',
+      'Systèmes embarqués IoT (Arduino)',
+      'Intelligence artificielle et machine learning',
+      'DevOps : Docker, CI/CD, virtualisation',
+    ],
+    modules: ['Architecture logicielle', 'Vue.js / React', 'Spring Boot', 'Laravel', 'Machine Learning', 'IoT & Embarqué', 'Docker / DevOps', 'BDD avancées', 'Sécurité informatique'],
   },
   {
-    title: 'Licence Professionnelle - Informatique de Gestion',
+    title: 'Licence Professionnelle – Informatique de Gestion',
     institution: 'IUT de Parakou',
-    period: '2021 - 2024',
-    description: 'Formation axée sur le développement web/mobile, la gestion de bases de données et les systèmes d\'information d\'entreprise.',
+    location: 'Parakou, Bénin',
+    period: '2021 – 2024',
+    current: false,
+    description: 'Formation polyvalente en développement web et mobile, gestion des bases de données et systèmes d\'information d\'entreprise.',
     highlights: [
-      'Développement web et mobile',
-      'Conception et gestion de bases de données',
-      'Systèmes d\'information et ERP',
-      'Gestion de projets informatiques',
-      'Stage de fin d\'études avec soutenance'
-    ]
+      'Développement web (HTML, CSS, JavaScript, PHP) et mobile',
+      'Conception et gestion de bases de données relationnelles',
+      'Systèmes d\'information, ERP et logiciels de gestion',
+      'Conduite et gestion de projets informatiques',
+      'Mémoire de fin d\'études soutenu devant jury',
+    ],
+    modules: ['PHP / MySQL', 'JavaScript ES6+', 'Algorithmique', 'Automates', 'Réseaux', 'Systèmes d\'exploitation', 'UML / Merise', 'Gestion de projet', 'Mobile (Android)'],
   },
 ]
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible')
-        }
-      })
-    },
-    { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
-  )
-
-  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el))
-})
+const softSkills = [
+  {
+    icon: '→',
+    label: 'Autonomie & Initiative',
+    description: 'Capable de mener des projets en totale autonomie, de la conception à la mise en production.',
+  },
+  {
+    icon: '○',
+    label: 'Travail en équipe',
+    description: 'Expérience de travail en binôme et en équipe Agile/Scrum sur des projets réels.',
+  },
+  {
+    icon: '◇',
+    label: 'Curiosité intellectuelle',
+    description: 'Veille technologique constante, passion pour l\'IA et les nouvelles architectures logicielles.',
+  },
+  {
+    icon: '□',
+    label: 'Adaptabilité',
+    description: 'S\'adapte rapidement à de nouveaux environnements, technologies et méthodes de travail.',
+  },
+  {
+    icon: '△',
+    label: 'Résolution de problèmes',
+    description: 'Approche analytique pour identifier les problématiques et proposer des solutions concrètes.',
+  },
+  {
+    icon: '✦',
+    label: 'Communication',
+    description: 'À l\'aise pour présenter, rédiger des cahiers des charges et interagir avec des équipes pluridisciplinaires.',
+  },
+]
 </script>
