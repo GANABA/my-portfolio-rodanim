@@ -1,11 +1,11 @@
 export const projects = [
   {
     id: 1,
-    title: "Analyse et Nettoyage de Données Bancaires - IA / Data",
+    title: "Analyse et Nettoyage de Données Bancaires",
     shortDescription:
       "Projet d'exploration, de nettoyage et d'analyse statistique d’un dataset bancaire fictif.",
     fullDescription:
-      "Ce projet a été réalisé dans le cadre de mon autoapprentissage en Data Science et Intelligence Artificielle via des formations en ligne. Il consistait à importer un jeu de données contenant des relevés bancaires fictifs, puis à effectuer un nettoyage complet des données avant d’en analyser les variables par différentes approches statistiques. Le projet a couvert des notions clés telles que la représentation de distributions, les mesures de tendance centrale, de dispersion, d’asymétrie et de concentration, ainsi que des analyses bivariées (corrélations, régression linéaire, ANOVA, Chi-2). Ce travail a permis de me familiariser avec la manipulation de données réelles, leur structuration et l’interprétation statistique en vue d'une modélisation future.",
+      "Ce projet a été réalisé dans le cadre de mon autoapprentissage en Data Science et Intelligence Artificielle via des formations en ligne. Il consistait à importer un jeu de données contenant des relevés bancaires fictifs, puis à effectuer un nettoyage complet des données avant d’en analyser les variables par différentes approches statistiques. Le projet a couvert des notions clés telles que la représentation de distributions, les mesures de tendance centrale, de dispersion, ainsi que des analyses bivariées (corrélations, régression linéaire, ANOVA, Chi-2). Ce travail a permis de me familiariser avec la manipulation de données réelles, leur structuration et l’interprétation statistique en vue d'une modélisation future.",
     context:
       "Projet réalisé en autoapprentissage dans le cadre de ma formation continue en Data Science et Machine Learning.",
     objectives: [
@@ -26,8 +26,6 @@ export const projects = [
       "Pandas",
       "NumPy",
       "Matplotlib",
-      "Seaborn",
-      "Scikit-learn",
     ],
     image: "/images/6.png",
     githubLink:
