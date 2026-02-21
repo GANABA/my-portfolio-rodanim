@@ -267,12 +267,12 @@ const experiences = [
     description: 'Stage de fin d\'études du BUT3. Participation à la conception, au développement et à l\'amélioration d\'agents IA internes et d\'applications dédiées aux ingénieurs, au sein des équipes engineering et digitales.',
     highlights: [
       'Investigation, conception et amélioration d\'agents IA internes destinés à soutenir les ingénieurs',
-      'Développement et amélioration d\'applications dédiées à l\'engineering',
+      'Développement de dashboards et d\'applications dédiées à l\'engineering',
       'Contribution au pilotage des projets IA : spécification, suivi, reporting',
       'Interactions avec les équipes engineering et digitales',
       'Identification des problématiques, formalisation des besoins et proposition de solutions IA innovantes',
     ],
-    technologies: ['Python', 'LangChain', 'Agents IA', 'LLM', 'API REST', 'Sinequa'],
+    technologies: ['Python', 'LangChain', 'Agents IA', 'LLM', 'API REST', 'Power BI', 'Sinequa'],
   },
   {
     title: 'Développeur Web Full-Stack',
