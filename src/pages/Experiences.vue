@@ -201,16 +201,55 @@
               <span class="font-mono text-xs text-grey-400 mt-1 shrink-0">01</span>
               <div class="flex-1">
                 <div class="flex flex-wrap items-center gap-3 mb-2">
-                  <span class="font-mono text-xs tracking-wider px-2 py-0.5 border border-accent text-accent">2026</span>
-                  <span class="font-mono text-xs text-grey-400">Développeur IA</span>
+                  <span class="font-mono text-xs tracking-wider px-2 py-0.5 border border-accent text-accent">🏆 GRAND PRIX</span>
+                  <span class="font-mono text-xs text-grey-400">Juin 2026 · Développeur IA</span>
                 </div>
-                <h2 class="text-2xl sm:text-3xl font-sans font-bold group-hover:text-accent transition-colors mb-3">
-                  Datathon 2026
+                <h2 class="text-2xl sm:text-3xl font-sans font-bold group-hover:text-accent transition-colors mb-2">
+                  Datathon IA Santé 2026 — « ChuteGeria IA »
                 </h2>
-                <p class="text-grey-600 leading-relaxed max-w-2xl">
-                  Participation à un datathon en tant que développeur IA — mise en pratique de la data science
-                  et de l'intelligence artificielle en conditions réelles (attestation disponible).
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-1 mb-5 text-sm text-grey-600">
+                  <span class="font-mono tracking-wide">Université des Antilles</span>
+                  <span class="text-grey-400">Guadeloupe</span>
+                </div>
+
+                <p class="text-grey-600 leading-relaxed max-w-2xl mb-6">
+                  Conception en 3 jours d'un MVP d'aide à la décision pour l'orientation aux urgences des patients
+                  âgés admis après une chute (hospitalisation, observation ou retour à domicile). Lauréat du
+                  <strong class="text-dark font-semibold">Grand Prix du Mémoire DU IASH 2026</strong>.
                 </p>
+
+                <div class="mb-6">
+                  <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-4">MISSIONS & RÉSULTATS</h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start gap-3 text-sm text-grey-700">
+                      <span class="mt-2 w-4 h-px bg-accent shrink-0 inline-block"></span>
+                      Analyse des besoins métiers avec les professionnels de santé et conception de l'infrastructure IA
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-grey-700">
+                      <span class="mt-2 w-4 h-px bg-accent shrink-0 inline-block"></span>
+                      Architecture RAG + LLM s'appuyant sur les recommandations internationales vectorisées
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-grey-700">
+                      <span class="mt-2 w-4 h-px bg-accent shrink-0 inline-block"></span>
+                      MVP livré en équipe internationale (Guadeloupe / Montréal) en méthode collaborative
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-grey-700">
+                      <span class="mt-2 w-4 h-px bg-accent shrink-0 inline-block"></span>
+                      86 recommandations correctes sur 100 comptes rendus patients, validées par les spécialistes
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-3">TECHNOLOGIES</h4>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      v-for="tech in ['Python', 'RAG', 'LLM', 'ChromaDB', 'Ollama', 'Mistral AI', 'FastAPI', 'AWS']"
+                      :key="tech"
+                      class="px-3 py-1 border border-grey-300 text-dark font-mono text-xs hover:border-accent hover:text-accent transition-colors"
+                    >{{ tech }}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

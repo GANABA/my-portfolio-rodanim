@@ -25,7 +25,7 @@
         <!-- Subtitle -->
         <div class="max-w-2xl opacity-0 animate-reveal" style="animation-delay: 0.6s;">
           <p class="text-lg sm:text-xl md:text-2xl font-sans font-light text-grey-700 mb-6 sm:mb-8">
-            Développeur IA & Applications — RAG, LLM & Full-Stack
+            Développeur IA & Applications — Machine Learning, LLM & Full-Stack
           </p>
         </div>
 
@@ -387,7 +387,7 @@ const featuredProjects = computed(() => {
 })
 
 // Compétences organisées (IA d'abord)
-const aiTechs = ['LLM', 'RAG', 'LangChain / LangGraph', 'Mistral AI', 'n8n', 'MCP', 'Agents IA']
+const aiTechs = ['LLM', 'RAG', 'LangChain / LangGraph', 'n8n', 'MCP', 'Agents IA']
 const dataTechs = ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'LightGBM', 'TensorFlow', 'Power BI', 'Streamlit']
 const webTechs = ['PHP', 'Laravel', 'Java', 'Spring Boot', 'Vue.js', 'Node.js', 'MySQL', 'MongoDB', 'API REST']
 const toolsTechs = ['Git', 'GitLab CI/CD', 'Docker', 'Postman', 'Vite']
