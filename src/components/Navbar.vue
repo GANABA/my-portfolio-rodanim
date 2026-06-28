@@ -36,7 +36,7 @@
             CONTACT
           </a>
           <a
-            href="/CV Rodanim Ganaba.pdf"
+            href="/CV-Rodanim-Ganaba-Alternance-2026.pdf"
             target="_blank"
             rel="noopener noreferrer"
             class="px-4 sm:px-6 py-1.5 sm:py-2 bg-dark text-light border-2 border-dark font-mono text-xs tracking-widest hover:bg-transparent hover:text-dark transition-all duration-300"
@@ -48,7 +48,7 @@
         <!-- Mobile: menu burger + CV -->
         <div class="flex md:hidden items-center gap-3">
           <a
-            href="/CV Rodanim Ganaba.pdf"
+            href="/CV-Rodanim-Ganaba-Alternance-2026.pdf"
             target="_blank"
             rel="noopener noreferrer"
             class="px-3 py-1.5 bg-dark text-light border-2 border-dark font-mono text-xs tracking-widest hover:bg-transparent hover:text-dark transition-all duration-300"

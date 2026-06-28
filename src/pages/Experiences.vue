@@ -189,6 +189,35 @@
       </div>
     </section>
 
+    <!-- Distinctions -->
+    <section class="py-16 sm:py-24 px-4 sm:px-6 border-t border-grey-200">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-8 md:gap-12">
+        <div class="md:col-span-3">
+          <span class="font-mono text-xs tracking-widest text-grey-500">DISTINCTIONS</span>
+        </div>
+        <div class="md:col-span-9">
+          <div class="group border-t border-grey-200 pt-10 sm:pt-14">
+            <div class="flex items-start gap-4 sm:gap-6">
+              <span class="font-mono text-xs text-grey-400 mt-1 shrink-0">01</span>
+              <div class="flex-1">
+                <div class="flex flex-wrap items-center gap-3 mb-2">
+                  <span class="font-mono text-xs tracking-wider px-2 py-0.5 border border-accent text-accent">2026</span>
+                  <span class="font-mono text-xs text-grey-400">Développeur IA</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-sans font-bold group-hover:text-accent transition-colors mb-3">
+                  Datathon 2026
+                </h2>
+                <p class="text-grey-600 leading-relaxed max-w-2xl">
+                  Participation à un datathon en tant que développeur IA — mise en pratique de la data science
+                  et de l'intelligence artificielle en conditions réelles (attestation disponible).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Soft Skills -->
     <section class="py-16 sm:py-24 px-4 sm:px-6 border-t border-grey-200 bg-grey-50">
       <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-8 md:gap-12">
@@ -225,11 +254,11 @@
         <div class="md:col-span-9">
           <h2 class="text-3xl sm:text-4xl font-bold mb-6">Une opportunité à me proposer ?</h2>
           <p class="text-grey-600 mb-8 max-w-xl">
-            Je suis disponible pour des stages, alternances ou projets freelance.
+            Je recherche une <strong class="text-dark font-semibold">alternance (Master IA, septembre 2026)</strong> et reste ouvert aux projets freelance.
           </p>
           <div class="flex flex-col sm:flex-row gap-4">
             <a
-              href="/CV Rodanim Ganaba.pdf"
+              href="/CV-Rodanim-Ganaba-Alternance-2026.pdf"
               download
               class="group inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-dark text-light border-2 border-dark font-mono text-xs tracking-wider hover:bg-transparent hover:text-dark transition-all duration-300"
             >
@@ -260,19 +289,19 @@ const activeTab = ref('stages')
 const experiences = [
   {
     title: 'Développeur Applications & Agents IA',
-    institution: 'Faurecia Clean Mobility',
-    location: 'France',
+    institution: 'FORVIA',
+    location: 'Bavans, France',
     period: 'Fév. 2026 – Présent',
     current: true,
     description: 'Stage de fin d\'études du BUT3. Participation à la conception, au développement et à l\'amélioration d\'agents IA internes et d\'applications dédiées aux ingénieurs, au sein des équipes engineering et digitales.',
     highlights: [
-      'Investigation, conception et amélioration d\'agents IA internes destinés à soutenir les ingénieurs',
-      'Développement de dashboards et d\'applications dédiées à l\'engineering',
+      'Conception d\'agents IA conversationnels avec moteur RAG pour les ingénieurs et CAD designers',
+      'Développement de dashboards Power BI (star schema, modèle sémantique)',
+      'Étude des besoins métiers, proposition de solutions et documentation technique',
       'Contribution au pilotage des projets IA : spécification, suivi, reporting',
       'Interactions avec les équipes engineering et digitales',
-      'Identification des problématiques, formalisation des besoins et proposition de solutions IA innovantes',
     ],
-    technologies: ['Python', 'LangChain', 'Agents IA', 'LLM', 'API REST', 'Power BI', 'Sinequa'],
+    technologies: ['Sinequa', 'LLM', 'RAG', 'Agents IA', 'Power BI', 'API REST', 'Python'],
   },
   {
     title: 'Développeur Web Full-Stack',
