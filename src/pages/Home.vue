@@ -388,7 +388,7 @@ const featuredProjects = computed(() => {
 
 // Compétences organisées (IA d'abord)
 const aiTechs = ['LLM', 'RAG', 'LangChain / LangGraph', 'n8n', 'MCP', 'Agents IA']
-const dataTechs = ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'LightGBM', 'TensorFlow', 'Power BI', 'Streamlit']
+const dataTechs = ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'TensorFlow', 'Power BI', 'Streamlit']
 const webTechs = ['PHP', 'Laravel', 'Java', 'Spring Boot', 'Vue.js', 'Node.js', 'MySQL', 'MongoDB', 'API REST']
 const toolsTechs = ['Git', 'GitLab CI/CD', 'Docker', 'Postman', 'Vite']
 
