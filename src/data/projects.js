@@ -362,6 +362,58 @@ export const projects = [
     duration: "Novembre 2025 - Décembre 2025",
     methodology: "Recherche & Développement (Itérations basées sur les métriques de performance)",
   },
+  {
+    id: 10,
+    title: "SDIS Intervention - Assistant IA d'aide à la décision opérationnelle",
+    en: {
+      title: "SDIS Intervention — AI Decision-Support Assistant",
+      shortDescription:
+        "Skills plugin for AI agents and a LangGraph multi-agent system supporting firefighters during emergency operations.",
+      role: "Design & Development",
+      duration: "May 2026 - June 2026 (~4 weeks)",
+    },
+    shortDescription:
+      "Plugin de skills pour agents IA et système multi-agents LangGraph au service des sapeurs-pompiers en intervention.",
+    fullDescription:
+      "Quand un sapeur-pompier arrive sur un sinistre, les informations qui conditionnent ses décisions existent déjà — bornes incendie dans OpenStreetMap, hauteur et matériaux du bâtiment dans la BD Topo de l'IGN, population et établissements sensibles à l'INSEE, vent et humidité chez Open-Meteo, vigilance crues chez Vigicrues — mais elles sont dispersées sur une dizaine de portails aux formats hétérogènes. Les agréger manuellement prend un temps qu'une intervention ne laisse pas. Le projet répond par une architecture en deux couches superposées, utilisables indépendamment. La première est un plugin de cinq skills autonomes : chacun est un dossier avec ses instructions courtes, un script CLI Python testable seul et une documentation chargée uniquement à la demande. Le choix des skills plutôt que de serveurs MCP est l'arbitrage architectural central du projet, un outil MCP coûtant 1 000 à 2 000 tokens de contexte en permanence contre environ 140 pour la description d'un skill inactif. La seconde couche est un système multi-agents LangChain/LangGraph où le LLM sert de cerveau de raisonnement et où les skills deviennent les outils des agents : un orchestrateur extrait les paramètres du sinistre, un routeur dispatche vers cinq agents spécialisés, et un agent de synthèse rédige la fiche de situation destinée au commandant des opérations de secours.",
+    context:
+      "Projet académique réalisé à l'IUT NFC-UMLP dans le cadre du cours « Agents LangChain ». Conception et développement de l'architecture des skills, de l'intégration des APIs publiques, puis de la couche multi-agents.",
+    objectives: [
+      "Transformer une question en langage naturel en une lecture opérationnelle du territoire, sans consulter aucun portail",
+      "Maîtriser l'empreinte en tokens : 701 tokens en idle pour les 5 skills contre ~7 500 en équivalent MCP, soit 9 % — l'objectif fixé était de descendre sous 33 %",
+      "Garantir zéro dépendance payante : toutes les sources de données sont publiques et sans clé d'API",
+      "Rendre chaque script testable hors agent, en CLI, avec sortie JSON sur stdout",
+      "Obtenir un auto-déclenchement fiable des skills sur une question naturelle, sans invocation explicite",
+    ],
+    features: [
+      "Ressources hydrauliques : bornes, poteaux et points d'aspiration triés par distance avec coordonnées GPS, cours d'eau exploitables, calcul d'autonomie des citernes et cadence de navette",
+      "Qualification du bâtiment : type, hauteur, étages, matériaux, bâtiments adjacents et risque de propagation, voies d'accès avec largeur et tonnage",
+      "Enjeux humains : population du périmètre, personnes vulnérables par IRIS, ERP à proximité avec priorisation des hôpitaux, EHPAD et écoles",
+      "Météo et risques : vent, rafales, humidité, indice de propagation interprété en 5 niveaux, vigilance crues Vigicrues",
+      "Fiche de situation consolidée (SITUATION / RISQUES / RESSOURCES / RECOMMANDATIONS) agrégeant les quatre analyses",
+      "Routeur implémenté en fonction pure plutôt qu'en nœud LLM, garantissant une exécution séquentielle déterministe sans appel LLM gaspillé",
+      "Conversation à état : l'adresse du sinistre est mémorisée dans la session via InMemorySaver et thread_id",
+      "Contournement documenté de plusieurs endpoints publics défaillants (Hub'Eau en 403, API Carto IGN renvoyant le mauvais secteur, endpoint IRIS supprimé, filtres DWITHIN du WFS IGN inopérants)",
+    ],
+    technologies: [
+      "Python",
+      "LangChain",
+      "LangGraph",
+      "Pydantic",
+      "Agents IA",
+      "OpenAI API",
+      "API REST",
+      "OpenStreetMap",
+      "IGN BD Topo",
+      "Open-Meteo",
+    ],
+    image: "/images/Chatbot-CLI.png",
+    githubLink: "https://github.com/GANABA/plugin-sdis-intervention",
+    liveLink: null,
+    featured: true,
+    role: "Conception & Développement",
+    duration: "Mai 2026 - Juin 2026 (~4 semaines)",
+  },
 ];
 
 /**

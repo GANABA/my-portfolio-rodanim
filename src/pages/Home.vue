@@ -359,8 +359,9 @@ import { projects, localizedProject } from '../data/projects.js'
 const router = useRouter()
 const { t, locale } = useI18n()
 
-// Projets en vedette — projets IA d'abord (Assistant Financier IA, ParkMR, TINA, GPFE)
-const featuredOrder = [9, 8, 2, 3]
+// Projets en vedette — projets IA d'abord
+// (SDIS Intervention, Assistant Financier IA, ParkMR, TINA)
+const featuredOrder = [10, 9, 8, 2]
 const featuredProjects = computed(() => {
   return featuredOrder
     .map(id => projects.find(p => p.id === id))
