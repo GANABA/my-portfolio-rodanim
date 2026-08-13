@@ -6,16 +6,16 @@
       <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-8 md:gap-12 items-end">
         <div class="md:col-span-3">
           <span class="inline-block font-mono text-xs sm:text-sm tracking-widest text-grey-500">
-            05 — PARCOURS
+            {{ t('experiences.label') }}
           </span>
         </div>
         <div class="md:col-span-9">
           <h1 class="text-4xl sm:text-5xl md:text-7xl font-sans font-bold leading-none mb-6">
-            Formations<br />
-            <span class="text-grey-400">&amp; Expériences</span>
+            {{ t('experiences.titleLine1') }}<br />
+            <span class="text-grey-400">{{ t('experiences.titleLine2') }}</span>
           </h1>
           <p class="text-base sm:text-lg text-grey-600 max-w-2xl">
-            Chaque étape a construit une compétence. Du Bénin à la France, un parcours orienté vers le développement logiciel et l'intelligence artificielle.
+            {{ t('experiences.intro') }}
           </p>
         </div>
       </div>
@@ -32,7 +32,7 @@
               : 'text-grey-500 hover:text-dark'"
             class="font-mono text-xs tracking-widest py-4 px-4 sm:px-6 transition-colors duration-200"
           >
-            STAGES
+            {{ t('experiences.tabInternships') }}
           </button>
           <button
             @click="activeTab = 'formation'"
@@ -41,7 +41,7 @@
               : 'text-grey-500 hover:text-dark'"
             class="font-mono text-xs tracking-widest py-4 px-4 sm:px-6 transition-colors duration-200"
           >
-            PARCOURS ACADÉMIQUE
+            {{ t('experiences.tabEducation') }}
           </button>
         </div>
       </div>
@@ -53,7 +53,7 @@
     <section v-show="activeTab === 'stages'" class="py-16 sm:py-24 px-4 sm:px-6">
       <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-8 md:gap-12">
         <div class="md:col-span-3">
-          <span class="font-mono text-xs tracking-widest text-grey-500">EXPÉRIENCES EN ENTREPRISE</span>
+          <span class="font-mono text-xs tracking-widest text-grey-500">{{ t('experiences.sectionInternships') }}</span>
         </div>
         <div class="md:col-span-9 space-y-0">
           <div
@@ -69,7 +69,7 @@
                     class="font-mono text-xs tracking-wider px-2 py-0.5 border"
                     :class="exp.current ? 'border-accent text-accent' : 'border-grey-300 text-grey-500'"
                   >
-                    {{ exp.current ? 'EN COURS' : 'TERMINÉ' }}
+                    {{ exp.current ? t('experiences.current') : t('experiences.finished') }}
                   </span>
                   <span class="font-mono text-xs text-grey-400">{{ exp.period }}</span>
                 </div>
@@ -87,7 +87,7 @@
               <p class="text-grey-600 leading-relaxed">{{ exp.description }}</p>
 
               <div>
-                <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-4">MISSIONS & RÉALISATIONS</h4>
+                <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-4">{{ t('experiences.missions') }}</h4>
                 <ul class="space-y-2">
                   <li
                     v-for="item in exp.highlights"
@@ -101,7 +101,7 @@
               </div>
 
               <div v-if="exp.technologies">
-                <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-3">TECHNOLOGIES</h4>
+                <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-3">{{ t('experiences.technologies') }}</h4>
                 <div class="flex flex-wrap gap-2">
                   <span
                     v-for="tech in exp.technologies"
@@ -124,7 +124,7 @@
     <section v-show="activeTab === 'formation'" class="py-16 sm:py-24 px-4 sm:px-6">
       <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-8 md:gap-12">
         <div class="md:col-span-3">
-          <span class="font-mono text-xs tracking-widest text-grey-500">CURSUS UNIVERSITAIRE</span>
+          <span class="font-mono text-xs tracking-widest text-grey-500">{{ t('experiences.sectionEducation') }}</span>
         </div>
         <div class="md:col-span-9 space-y-0">
           <div
@@ -140,7 +140,7 @@
                     class="font-mono text-xs tracking-wider px-2 py-0.5 border"
                     :class="edu.current ? 'border-accent text-accent' : 'border-grey-300 text-grey-500'"
                   >
-                    {{ edu.current ? 'EN COURS' : 'DIPLÔME OBTENU' }}
+                    {{ edu.current ? t('experiences.current') : t('experiences.graduated') }}
                   </span>
                   <span class="font-mono text-xs text-grey-400">{{ edu.period }}</span>
                 </div>
@@ -158,7 +158,7 @@
               <p class="text-grey-600 leading-relaxed">{{ edu.description }}</p>
 
               <div>
-                <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-4">COMPÉTENCES DÉVELOPPÉES</h4>
+                <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-4">{{ t('experiences.competencies') }}</h4>
                 <ul class="space-y-2">
                   <li
                     v-for="item in edu.highlights"
@@ -172,7 +172,7 @@
               </div>
 
               <div v-if="edu.modules">
-                <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-3">MODULES CLÉS</h4>
+                <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-3">{{ t('experiences.modules') }}</h4>
                 <div class="flex flex-wrap gap-2">
                   <span
                     v-for="mod in edu.modules"
@@ -193,7 +193,7 @@
     <section class="py-16 sm:py-24 px-4 sm:px-6 border-t border-grey-200">
       <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-8 md:gap-12">
         <div class="md:col-span-3">
-          <span class="font-mono text-xs tracking-widest text-grey-500">DISTINCTIONS</span>
+          <span class="font-mono text-xs tracking-widest text-grey-500">{{ t('experiences.distinctions') }}</span>
         </div>
         <div class="md:col-span-9">
           <div class="group border-t border-grey-200 pt-10 sm:pt-14">
@@ -201,50 +201,38 @@
               <span class="font-mono text-xs text-grey-400 mt-1 shrink-0">01</span>
               <div class="flex-1">
                 <div class="flex flex-wrap items-center gap-3 mb-2">
-                  <span class="font-mono text-xs tracking-wider px-2 py-0.5 border border-accent text-accent">🏆 GRAND PRIX</span>
-                  <span class="font-mono text-xs text-grey-400">Juin 2026 · Développeur IA</span>
+                  <span class="font-mono text-xs tracking-wider px-2 py-0.5 border border-accent text-accent">{{ datathon.badge }}</span>
+                  <span class="font-mono text-xs text-grey-400">{{ datathon.meta }}</span>
                 </div>
                 <h2 class="text-2xl sm:text-3xl font-sans font-bold group-hover:text-accent transition-colors mb-2">
-                  Datathon IA Santé 2026 — « ChuteGeria IA »
+                  {{ datathon.title }}
                 </h2>
                 <div class="flex flex-wrap items-center gap-x-4 gap-y-1 mb-5 text-sm text-grey-600">
-                  <span class="font-mono tracking-wide">Université des Antilles</span>
-                  <span class="text-grey-400">Guadeloupe</span>
+                  <span class="font-mono tracking-wide">{{ datathon.institution }}</span>
+                  <span class="text-grey-400">{{ datathon.location }}</span>
                 </div>
 
-                <p class="text-grey-600 leading-relaxed max-w-2xl mb-6">
-                  Conception en 3 jours d'un MVP d'aide à la décision pour l'orientation aux urgences des patients
-                  âgés admis après une chute (hospitalisation, observation ou retour à domicile). Lauréat du
-                  <strong class="text-dark font-semibold">Grand Prix du Mémoire DU IASH 2026</strong>.
-                </p>
+                <p class="text-grey-600 leading-relaxed max-w-2xl mb-6" v-html="datathon.description"></p>
 
                 <div class="mb-6">
-                  <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-4">MISSIONS & RÉSULTATS</h4>
+                  <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-4">{{ t('experiences.missionsResults') }}</h4>
                   <ul class="space-y-2">
-                    <li class="flex items-start gap-3 text-sm text-grey-700">
+                    <li
+                      v-for="item in datathon.highlights"
+                      :key="item"
+                      class="flex items-start gap-3 text-sm text-grey-700"
+                    >
                       <span class="mt-2 w-4 h-px bg-accent shrink-0 inline-block"></span>
-                      Analyse des besoins métiers avec les professionnels de santé et conception de l'infrastructure IA
-                    </li>
-                    <li class="flex items-start gap-3 text-sm text-grey-700">
-                      <span class="mt-2 w-4 h-px bg-accent shrink-0 inline-block"></span>
-                      Architecture RAG + LLM s'appuyant sur les recommandations internationales vectorisées
-                    </li>
-                    <li class="flex items-start gap-3 text-sm text-grey-700">
-                      <span class="mt-2 w-4 h-px bg-accent shrink-0 inline-block"></span>
-                      MVP livré en équipe internationale (Guadeloupe / Montréal) en méthode collaborative
-                    </li>
-                    <li class="flex items-start gap-3 text-sm text-grey-700">
-                      <span class="mt-2 w-4 h-px bg-accent shrink-0 inline-block"></span>
-                      86 recommandations correctes sur 100 comptes rendus patients, validées par les spécialistes
+                      {{ item }}
                     </li>
                   </ul>
                 </div>
 
                 <div>
-                  <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-3">TECHNOLOGIES</h4>
+                  <h4 class="font-mono text-xs tracking-widest text-grey-400 mb-3">{{ t('experiences.technologies') }}</h4>
                   <div class="flex flex-wrap gap-2">
                     <span
-                      v-for="tech in ['Python', 'RAG', 'LLM', 'ChromaDB', 'Ollama', 'Mistral AI', 'FastAPI', 'AWS']"
+                      v-for="tech in datathon.technologies"
                       :key="tech"
                       class="px-3 py-1 border border-grey-300 text-dark font-mono text-xs hover:border-accent hover:text-accent transition-colors"
                     >{{ tech }}</span>
@@ -261,10 +249,10 @@
     <section class="py-16 sm:py-24 px-4 sm:px-6 border-t border-grey-200 bg-grey-50">
       <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-8 md:gap-12">
         <div class="md:col-span-3">
-          <span class="font-mono text-xs tracking-widest text-grey-500">SOFT SKILLS</span>
+          <span class="font-mono text-xs tracking-widest text-grey-500">{{ t('experiences.softSkillsLabel') }}</span>
         </div>
         <div class="md:col-span-9">
-          <h2 class="text-3xl sm:text-4xl font-bold mb-10">Qualités humaines</h2>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-10">{{ t('experiences.softSkillsTitle') }}</h2>
           <div class="grid sm:grid-cols-2 gap-6">
             <div
               v-for="skill in softSkills"
@@ -288,20 +276,18 @@
     <section class="py-16 sm:py-24 px-4 sm:px-6 border-t border-grey-200">
       <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-8 md:gap-12 items-center">
         <div class="md:col-span-3">
-          <span class="font-mono text-xs tracking-widest text-grey-500">CONTACT</span>
+          <span class="font-mono text-xs tracking-widest text-grey-500">{{ t('experiences.ctaLabel') }}</span>
         </div>
         <div class="md:col-span-9">
-          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Une opportunité à me proposer ?</h2>
-          <p class="text-grey-600 mb-8 max-w-xl">
-            Je recherche une <strong class="text-dark font-semibold">alternance (Master IA, septembre 2026)</strong> et reste ouvert aux projets freelance.
-          </p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">{{ t('experiences.ctaTitle') }}</h2>
+          <p class="text-grey-600 mb-8 max-w-xl" v-html="t('experiences.ctaText')"></p>
           <div class="flex flex-col sm:flex-row gap-4">
             <a
-              href="/CV-Rodanim-Ganaba-Alternance-2026.pdf"
+              :href="t('nav.cvFile')"
               download
               class="group inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-dark text-light border-2 border-dark font-mono text-xs tracking-wider hover:bg-transparent hover:text-dark transition-all duration-300"
             >
-              TÉLÉCHARGER MON CV
+              {{ t('experiences.ctaDownload') }}
               <svg class="w-4 h-4 transform group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
               </svg>
@@ -310,7 +296,7 @@
               href="mailto:ganabarodanimkm@gmail.com"
               class="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 border-2 border-dark text-dark font-mono text-xs tracking-wider hover:bg-dark hover:text-light transition-all duration-300"
             >
-              ME CONTACTER
+              {{ t('experiences.ctaContact') }}
             </a>
           </div>
         </div>
@@ -321,127 +307,61 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t, tm, rt } = useI18n()
 
 const activeTab = ref('stages')
 
-const experiences = [
-  {
-    title: 'Développeur Applications & Agents IA',
-    institution: 'FORVIA',
-    location: 'Bavans, France',
-    period: 'Fév. 2026 – Présent',
-    current: true,
-    description: 'Stage de fin d\'études du BUT3. Participation à la conception, au développement et à l\'amélioration d\'agents IA internes et d\'applications dédiées aux ingénieurs, au sein des équipes engineering et digitales.',
-    highlights: [
-      'Conception d\'agents IA conversationnels avec moteur RAG pour les ingénieurs et CAD designers',
-      'Développement de dashboards Power BI (star schema, modèle sémantique)',
-      'Étude des besoins métiers, proposition de solutions et documentation technique',
-      'Contribution au pilotage des projets IA : spécification, suivi, reporting',
-      'Interactions avec les équipes engineering et digitales',
-    ],
-    technologies: ['Sinequa', 'LLM', 'RAG', 'Agents IA', 'Power BI', 'API REST', 'Python'],
-  },
-  {
-    title: 'Développeur Web Full-Stack',
-    institution: 'Light Innovation',
-    location: 'Parakou, Bénin',
-    period: 'Nov. 2024 – Fév. 2025',
-    current: false,
-    description: 'Conception et développement complet d\'une application web de réservation de chambres d\'hôtel avec interface client et panneau d\'administration.',
-    highlights: [
-      'Analyse des besoins clients et conception de l\'architecture applicative',
-      'Développement front-end avec HTML, CSS, Bootstrap et JavaScript',
-      'Implémentation du back-end : PHP, MySQL, gestion des sessions et authentification',
-      'Système de réservation en temps réel avec gestion des disponibilités',
-      'Panneau d\'administration et système d\'avis clients',
-    ],
-    technologies: ['PHP', 'MySQL', 'JavaScript', 'Bootstrap', 'HTML/CSS'],
-  },
-  {
-    title: 'Anayste Programmeur',
-    institution: 'CABRO GROUP SARL',
-    location: 'Parakou, Bénin',
-    period: 'Avr. 2024 – Juil. 2024',
-    current: false,
-    description: 'Développement en binôme d\'une application web de gestion des projets de fin d\'études pour un établissement universitaire.',
-    highlights: [
-      'Rédaction du cahier des charges et analyse des besoins fonctionnels',
-      'Modélisation de la base de données (MCD)',
-      'Développement back-end complet avec PHP et MySQL',
-      'Gestion des binômes étudiants et affectation des encadreurs',
-      'Soutenance du projet devant le jury',
-    ],
-    technologies: ['PHP', 'MySQL', 'JavaScript', 'Bootstrap', 'UML'],
-  },
-]
+/*
+  Le contenu (stages, formations, datathon, soft skills) vit dans les
+  fichiers de locale. tm() résout les tableaux et objets de messages ;
+  rt() résout chaque message individuel en chaîne.
+*/
+const resolveList = (key, stringFields, listFields = []) =>
+  tm(key).map((entry) => {
+    const out = { ...entry }
+    stringFields.forEach((f) => {
+      if (entry[f] !== undefined) out[f] = rt(entry[f])
+    })
+    listFields.forEach((f) => {
+      if (entry[f] !== undefined) out[f] = entry[f].map((v) => rt(v))
+    })
+    return out
+  })
 
-const education = [
-  {
-    title: 'BUT 3 Informatique – Développement d\'applications',
-    institution: 'IUT Nord Franche-Comté',
-    location: 'Belfort, France',
-    period: '2025 – Présent',
-    current: true,
-    description: 'Formation bac+3 orientée développement logiciel avancé, IoT et intelligence artificielle. Projets réels en équipe avec méthodologies agiles.',
-    highlights: [
-      'Développement full-stack : Vue.js, Spring Boot, Laravel, Node.js',
-      'Architecture logicielle et design patterns',
-      'Gestion de projets Agile/Scrum',
-      'Systèmes embarqués IoT (Arduino)',
-      'Intelligence artificielle et machine learning',
-      'DevOps : Docker, CI/CD, virtualisation',
-    ],
-    modules: ['Architecture logicielle', 'Vue.js / React', 'Spring Boot', 'Laravel', 'Machine Learning', 'IoT & Embarqué', 'Docker / DevOps', 'BDD avancées', 'Sécurité informatique'],
-  },
-  {
-    title: 'Licence Professionnelle – Informatique de Gestion',
-    institution: 'IUT de Parakou',
-    location: 'Parakou, Bénin',
-    period: '2021 – 2024',
-    current: false,
-    description: 'Formation polyvalente en développement web et mobile, gestion des bases de données et systèmes d\'information d\'entreprise.',
-    highlights: [
-      'Développement web (HTML, CSS, JavaScript, PHP) et mobile',
-      'Conception et gestion de bases de données relationnelles',
-      'Systèmes d\'information, ERP et logiciels de gestion',
-      'Conduite et gestion de projets informatiques',
-      'Mémoire de fin d\'études soutenu devant jury',
-    ],
-    modules: ['PHP / MySQL', 'JavaScript ES6+', 'Algorithmique', 'Automates', 'Réseaux', 'Systèmes d\'exploitation', 'UML / Merise', 'Gestion de projet', 'Mobile (Android)'],
-  },
-]
+const experiences = computed(() =>
+  resolveList(
+    'experiences.jobs',
+    ['title', 'institution', 'location', 'period', 'description'],
+    ['highlights', 'technologies']
+  )
+)
 
-const softSkills = [
-  {
-    icon: '→',
-    label: 'Autonomie & Initiative',
-    description: 'Capable de mener des projets en totale autonomie, de la conception à la mise en production.',
-  },
-  {
-    icon: '○',
-    label: 'Travail en équipe',
-    description: 'Expérience de travail en binôme et en équipe Agile/Scrum sur des projets réels.',
-  },
-  {
-    icon: '◇',
-    label: 'Curiosité intellectuelle',
-    description: 'Veille technologique constante, passion pour l\'IA et les nouvelles architectures logicielles.',
-  },
-  {
-    icon: '□',
-    label: 'Adaptabilité',
-    description: 'S\'adapte rapidement à de nouveaux environnements, technologies et méthodes de travail.',
-  },
-  {
-    icon: '△',
-    label: 'Résolution de problèmes',
-    description: 'Approche analytique pour identifier les problématiques et proposer des solutions concrètes.',
-  },
-  {
-    icon: '✦',
-    label: 'Communication',
-    description: 'À l\'aise pour présenter, rédiger des cahiers des charges et interagir avec des équipes pluridisciplinaires.',
-  },
-]
+const education = computed(() =>
+  resolveList(
+    'experiences.education',
+    ['title', 'institution', 'location', 'period', 'description'],
+    ['highlights', 'modules']
+  )
+)
+
+const softSkills = computed(() =>
+  resolveList('experiences.softSkills', ['icon', 'label', 'description'])
+)
+
+const datathon = computed(() => {
+  const raw = tm('experiences.datathon')
+  return {
+    badge: rt(raw.badge),
+    meta: rt(raw.meta),
+    title: rt(raw.title),
+    institution: rt(raw.institution),
+    location: rt(raw.location),
+    description: rt(raw.description),
+    highlights: raw.highlights.map((v) => rt(v)),
+    technologies: raw.technologies.map((v) => rt(v)),
+  }
+})
 </script>

@@ -1,7 +1,19 @@
+/*
+  Données projets. Le français est la langue de référence : chaque projet
+  porte un bloc `en` avec la traduction du titre et de la description courte.
+  La prose longue (fullDescription, context, objectives, features) reste en
+  français — voir localizedProject() plus bas et la note affichée en anglais
+  sur la page de détail.
+*/
 export const projects = [
   {
     id: 1,
     title: "Analyse et Nettoyage de Données Bancaires",
+    en: {
+      title: "Banking Data Analysis & Cleaning",
+      shortDescription:
+        "Exploration, cleaning and statistical analysis of a fictional banking dataset.",
+    },
     shortDescription:
       "Projet d'exploration, de nettoyage et d'analyse statistique d’un dataset bancaire fictif.",
     fullDescription:
@@ -36,6 +48,11 @@ export const projects = [
   {
     id: 2,
     title: "TINA HOTEL - Application de Réservation en Ligne",
+    en: {
+      title: "TINA HOTEL — Online Booking Application",
+      shortDescription:
+        "Complete hotel room booking platform with customer management and an admin interface.",
+    },
     shortDescription:
       "Plateforme web complète de réservation de chambres d’hôtel avec gestion client et interface administrateur.",
     fullDescription:
@@ -67,6 +84,11 @@ export const projects = [
   {
     id: 3,
     title: "GPFE - Gestion des Projets de Fin d’Études",
+    en: {
+      title: "GPFE — Final-Year Project Management",
+      shortDescription:
+        "Web platform managing student pairs, final-year project topics and supervisor assignment.",
+    },
     shortDescription:
       "Plateforme web permettant la gestion complète des binômes, des thèmes de PFE et de l’affectation des encadreurs.",
     fullDescription:
@@ -95,6 +117,11 @@ export const projects = [
   {
     id: 4,
     title: "Prédiction des Ventes par Budget Publicitaire - Machine Learning",
+    en: {
+      title: "Sales Prediction from Advertising Budget — Machine Learning",
+      shortDescription:
+        "Regression model predicting sales from advertising spend across media channels.",
+    },
     shortDescription:
       "Modèle de régression visant à prédire les ventes en fonction des investissements publicitaires.",
     fullDescription:
@@ -123,6 +150,11 @@ export const projects = [
   {
     id: 5,
     title: "Segmentation Client par Clustering K-Means",
+    en: {
+      title: "Customer Segmentation with K-Means Clustering",
+      shortDescription:
+        "Classifying shopping mall customers by annual income and spending score.",
+    },
     shortDescription:
       "Classification de clients d’un centre commercial selon leur revenu annuel et score de dépenses.",
     fullDescription:
@@ -152,6 +184,11 @@ export const projects = [
     id: 6,
     title:
       "Classification de Tumeurs avec Decision Tree, Random Forest et XGBoost",
+    en: {
+      title: "Tumour Classification with Decision Tree, Random Forest and XGBoost",
+      shortDescription:
+        "Comparing classification algorithms to predict whether a tumour is benign or malignant.",
+    },
     shortDescription:
       "Comparaison d’algorithmes de classification pour prédire si une tumeur est bénigne ou maligne.",
     fullDescription:
@@ -187,6 +224,11 @@ export const projects = [
   {
     id: 7,
     title: "Portfolio - Rodanim.",
+    en: {
+      title: "Portfolio — Rodanim.",
+      shortDescription:
+        "Personal site showcasing my projects, skills and background in web development.",
+    },
     shortDescription:
       "Site personnel moderne présentant mes projets, compétences et parcours en développement web.",
     fullDescription:
@@ -213,6 +255,13 @@ export const projects = [
   {
     id: 8,
     title: "ParkMR - Système IoT de Parkings Intelligents",
+    en: {
+      title: "ParkMR — Smart Parking IoT System",
+      shortDescription:
+        "Smart management of disabled parking spaces, combining IoT, machine learning and a full distributed architecture.",
+      role: "Backend & Arduino Developer",
+      duration: "September 2025 – Ongoing",
+    },
     shortDescription:
       "Système de gestion intelligente de places de parking réservées aux personnes à mobilité réduite, utilisant IoT, ML et une architecture distribuée complète.",
     fullDescription:
@@ -250,7 +299,9 @@ export const projects = [
       "Git",
     ],
     image: "/images/parkMR.png",
-    githubLink: "", //
+    // Code sur le GitLab de l'école, non accessible publiquement
+    githubLink: "",
+    privateRepo: true,
     liveLink: null,
     featured: true,
     teamSize: 5,
@@ -261,6 +312,13 @@ export const projects = [
   {
     id: 9,
     title: "Assistant Financier IA - Prédiction & Chatbot",
+    en: {
+      title: "AI Financial Assistant — Forecasting & Chatbot",
+      shortDescription:
+        "Hybrid solution combining machine learning (LightGBM) and generative AI (Mistral AI) for budget forecasting and personalised financial advice.",
+      role: "AI Architect & Full-Stack Developer",
+      duration: "November 2025 – December 2025",
+    },
     shortDescription:
       "Solution hybride combinant Machine Learning (LightGBM) et IA Générative (Mistral AI) pour la prévision budgétaire et le conseil financier personnalisé.",
     fullDescription:
@@ -305,3 +363,21 @@ export const projects = [
     methodology: "Recherche & Développement (Itérations basées sur les métriques de performance)",
   },
 ];
+
+/**
+ * Renvoie le projet dans la locale demandée : le bloc `en` est fusionné
+ * par-dessus les champs français. Les champs absents de `en` (prose longue)
+ * retombent naturellement sur le français.
+ */
+export function localizedProject(project, locale) {
+  if (!project) return project;
+  if (locale !== "en" || !project.en) return project;
+
+  const { en, ...base } = project;
+  return { ...base, ...en };
+}
+
+/** Version liste de localizedProject(). */
+export function localizedProjects(locale) {
+  return projects.map((project) => localizedProject(project, locale));
+}
