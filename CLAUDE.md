@@ -18,6 +18,10 @@ Le site est positionné pour une **recherche d'alternance IA / Dev à partir de 
 
 ## Development Commands
 
+**npm uniquement.** Le gestionnaire de paquets est npm, et `package-lock.json` est le seul lockfile du dépôt. Ne jamais y ajouter un `pnpm-lock.yaml` ou un `yarn.lock` : Netlify choisit son installeur d'après le lockfile qu'il trouve, donc un second lockfile fait installer les dépendances avec un outil que personne n'utilise en local. Il diverge alors en silence et le déploiement casse sur `ERR_PNPM_OUTDATED_LOCKFILE` à la première modification de `package.json`.
+
+**Node 20.19+ ou 22.12+ requis** — Vite 7 utilise `crypto.hash`, une API Node 20+. Sur une version antérieure le build échoue avec `crypto.hash is not a function`. Épinglé dans `.nvmrc`, dans `netlify.toml` (`NODE_VERSION = "22"`) et dans le champ `engines`.
+
 ```bash
 npm install       # Installe les dépendances
 npm run dev       # Serveur de dev — http://localhost:5173
@@ -275,6 +279,8 @@ Le sitemap ne doit lister que des routes réelles — pas d'URL redirigée vers 
 ## Git
 
 Branche principale : `main` — **tout push déclenche un déploiement Netlify**.
+
+Le build Netlify est décrit dans `netlify.toml` : commande, dossier publié, version de Node, et la redirection SPA qui renvoie toutes les routes vers `index.html` (indispensable avec `createWebHistory`, sinon un accès direct à `/projects` renvoie un 404).
 
 Travailler sur une branche par sujet (`chore/`, `feat/`, `docs/`), puis PR vers `main`. Messages de commit en français, à l'impératif, expliquant le *pourquoi* et pas seulement le *quoi*.
 
