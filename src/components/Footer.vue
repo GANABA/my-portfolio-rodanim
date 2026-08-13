@@ -12,7 +12,7 @@
             © {{ currentYear }} Rodanim Ganaba
           </p>
           <p class="text-xs text-grey-400 font-mono">
-            Développé avec Vue.js &amp; Tailwind CSS
+            {{ t('footer.builtWith') }}
           </p>
         </div>
       </div>
@@ -23,19 +23,19 @@
           to="/experiences"
           class="font-mono text-xs tracking-wider text-grey-500 hover:text-dark transition-colors"
         >
-          PARCOURS
+          {{ t('nav.experiences') }}
         </router-link>
         <router-link
           to="/projects"
           class="font-mono text-xs tracking-wider text-grey-500 hover:text-dark transition-colors"
         >
-          PROJETS
+          {{ t('nav.projects') }}
         </router-link>
         <a
           href="mailto:ganabarodanimkm@gmail.com"
           class="font-mono text-xs tracking-wider text-grey-500 hover:text-dark transition-colors"
         >
-          CONTACT
+          {{ t('nav.contact') }}
         </a>
         <a
           href="https://github.com/GANABA"
@@ -61,6 +61,8 @@
 
 <script setup>
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const currentYear = computed(() => new Date().getFullYear())
 </script>
