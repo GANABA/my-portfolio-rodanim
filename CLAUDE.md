@@ -6,288 +6,281 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **personal portfolio website** for Rodanim Ganaba, a computer science student (BUT 3 Informatique) showcasing projects, skills, and professional experience. The site presents both web development and data science projects.
+Portfolio personnel de **Rodanim Ganaba**, étudiant en BUT 3 Informatique, admis au Master « Intelligent Systems and Applications » (Université de Tours, rentrée septembre 2026).
 
-**Tech Stack**: Vue 3 + Vite + Vue Router + Tailwind CSS
-**Language**: French (content and UI)
-**Deployment**: Netlify (https://rodanim-ganaba.netlify.app/)
+Le site est positionné pour une **recherche d'alternance IA / Dev à partir de septembre 2026** — c'est l'objectif qui gouverne le contenu et la hiérarchie de l'information. Les projets IA passent avant les projets web.
+
+**Stack** : Vue 3 (`<script setup>`) + Vite + Vue Router + Tailwind CSS + vue-i18n
+**Langues** : français (référence) et anglais
+**Déploiement** : Netlify sur push vers `main` → https://rodanim-ganaba.netlify.app/
 
 ---
 
 ## Development Commands
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server (http://localhost:5173)
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
+npm install       # Installe les dépendances
+npm run dev       # Serveur de dev — http://localhost:5173
+npm run build     # Build de production vers dist/
+npm run preview   # Sert le build — http://localhost:4173
 ```
+
+Il n'y a **pas de tests** ni de linter configurés. La vérification se fait sur `npm run build` puis `npm run preview`, en parcourant le site dans les deux langues.
 
 ---
 
-## Project Architecture
+## Architecture
 
-### Directory Structure
+### Arborescence réelle
 
 ```
 src/
-├── components/          # Reusable Vue components
-│   ├── Navbar.vue      # Main navigation
-│   ├── Footer.vue      # Site footer
-│   ├── Hero.vue        # Homepage hero section
-│   ├── ProjectCard.vue # Project grid item
-│   └── SectionHeader.vue # Shared section title component
-├── pages/              # Route-level page components
-│   ├── Home.vue        # Landing page
-│   ├── About.vue       # About section
-│   ├── Skills.vue      # Technical skills
-│   ├── Experiences.vue # Professional experience
-│   ├── Projects.vue    # Projects gallery
-│   ├── ProjectDetail.vue # Individual project details
-│   └── Contact.vue     # Contact form (EmailJS)
+├── components/
+│   ├── Navbar.vue          # Nav fixe + sélecteur de langue FR|EN
+│   └── Footer.vue          # Footer global, année calculée
+├── pages/
+│   ├── Home.vue            # Page unique à sections ancrées
+│   ├── Experiences.vue     # Parcours (onglets) + Datathon + soft skills
+│   ├── Projects.vue        # Liste complète des projets
+│   └── ProjectDetail.vue   # Fiche projet — /project/:id
+├── i18n/
+│   ├── index.js            # createI18n + résolution de la locale initiale
+│   ├── fr.js               # Messages français (référence)
+│   └── en.js               # Messages anglais
+├── composables/
+│   └── useLocale.js        # Lecture / changement de langue
 ├── data/
-│   └── projects.js     # Project data array (9 projects)
-├── router/
-│   └── index.js        # Vue Router configuration
-├── App.vue             # Root component (Navbar + router-view + Footer)
-├── main.js             # App entry point
-└── style.css           # Global styles + Tailwind imports
+│   └── projects.js         # 9 projets + helpers de localisation
+├── router/index.js
+├── App.vue                 # Navbar + router-view + Footer, meta réactives
+├── main.js
+└── style.css               # Directives Tailwind + globales
 ```
+
+`Navbar` et `Footer` sont montés **une seule fois dans `App.vue`** — les pages ne contiennent ni l'un ni l'autre.
 
 ### Routing
 
-All routes defined in `src/router/index.js`:
-- `/` → Home page
-- `/about` → About section
-- `/skills` → Skills page
-- `/experiences` → Professional experience
-- `/projects` → Projects gallery
-- `/project/:id` → Project detail (dynamic route, accepts numeric ID)
-- `/contact` → Contact form
-- Catch-all `/*` redirects to `/`
+Défini dans `src/router/index.js` :
 
-**Scroll Behavior**: Routes reset scroll to top, preserves position on back navigation.
+| Route | Page |
+|---|---|
+| `/` | `Home.vue` |
+| `/experiences` | `Experiences.vue` |
+| `/projects` | `Projects.vue` |
+| `/project/:id` | `ProjectDetail.vue` (id numérique) |
+| `/:pathMatch(.*)*` | redirection vers `/` |
+
+**`Home.vue` est une page unique**, pas un ensemble de routes. Ses sections sont des ancres : `#about`, `#competences`, `#projets`, `#contact`. Il n'existe pas de route `/about`, `/skills` ou `/contact` — ne pas les ajouter au sitemap.
+
+Le scroll est remis en haut à chaque navigation, sauf retour arrière (position restaurée).
 
 ---
 
-## Key Technical Details
+## Internationalisation
 
-### Vue 3 Composition API
+`vue-i18n` **11.x en mode Composition API** — `legacy: false`. Le mode Legacy est déprécié en v11 et supprimé en v12 : ne pas le réactiver.
 
-All components use `<script setup>` syntax. No Options API.
+### Règle principale
 
-### Tailwind CSS Custom Theme
+> Toute chaîne visible par l'utilisateur passe par `fr.js` **et** `en.js`. Jamais de texte en dur dans un template.
 
-Custom design system configured in `tailwind.config.js`:
+Exceptions légitimes : les noms propres et technologies (`Python`, `Vue.js`, `FORVIA`…), qui restent dans les composants ou les données.
 
-**Colors**:
-- `primary`: Dark navy blue (#0a0e27)
-- `secondary`: Lighter navy (#1a1f3a)
-- `accent.blue`, `accent.purple`, `accent.cyan`: Blue/purple gradient theme
-- `text.primary`, `text.secondary`, `text.muted`: Text hierarchy
+### Utilisation
 
-**Custom Animations**:
-- `animate-float`: Floating effect (6s loop)
-- `animate-glow`: Glow pulsing effect
-- `animate-slide-up`, `animate-slide-in`, `animate-fade-in`: Entry animations
-
-**Custom Shadows**:
-- `shadow-glow-sm/md/lg`: Blue glow effects
-- `shadow-glass`: Glassmorphism effect
-
-### Environment Variables
-
-EmailJS configuration (contact form):
-```bash
-VITE_EMAILJS_SERVICE_ID=     # EmailJS service ID
-VITE_EMAILJS_TEMPLATE_ID=    # EmailJS template ID
-VITE_EMAILJS_PUBLIC_KEY=     # EmailJS public key
+```js
+// Dans un composant
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 ```
 
-Copy `.env.example` to `.env` and fill in values.
+Pour la langue courante et le changement de langue, passer par le composable :
 
-### Projects Data Model
+```js
+import { useLocale } from '../composables/useLocale.js'
+const { t, locale, locales, setLocale } = useLocale()
+```
 
-Projects stored in `src/data/projects.js` as array of objects:
+`setLocale()` fait trois choses ensemble — état vue-i18n, `localStorage`, et attribut `lang` du document. Ne pas écrire `i18n.global.locale.value` directement, sinon `<html lang>` se désynchronise.
 
-**Schema**:
+Locale initiale : choix mémorisé → langue du navigateur → `fr`.
+
+### Données structurées
+
+Les listes et objets (stages, formations, soft skills, Datathon) vivent dans les fichiers de locale et se lisent avec `tm()` puis `rt()` — voir le helper `resolveList()` dans `Experiences.vue`. `t()` ne fonctionne que sur des chaînes.
+
+### Texte riche
+
+Les paragraphes contenant des `<strong>` sont stockés en HTML dans les locales et rendus via `v-html`, avec `warnHtmlMessage: false`.
+
+**Ce choix n'est valable que tant que le projet n'a aucune saisie utilisateur** — aujourd'hui il n'y a ni formulaire, ni query param rendu, ni appel API : tout le contenu interpolé est écrit à la main. Si une entrée utilisateur apparaît un jour, il faudra basculer sur le composant `<i18n-t>` avec slots nommés.
+
+### Pièges
+
+- **Le `|` est le séparateur de pluriel de vue-i18n.** Un message contenant un pipe littéral doit l'échapper : `"Titre {'|'} Suffixe"`. Sinon seule la première partie s'affiche.
+- La locale n'est pas dans l'URL : le HTML servi reste français et c'est le français qui est indexé. `App.vue` met à jour `document.title` et la meta description côté client via un `watch` sur la locale.
+
+---
+
+## Données projets
+
+`src/data/projects.js` — 9 projets, ids 1 à 9.
+
 ```js
 {
   id: number,
-  title: string,
-  shortDescription: string,
-  fullDescription: string,
-  context: string,
-  objectives: string[],
-  features: string[],
+  title: string,              // FR
+  shortDescription: string,   // FR
+  fullDescription: string,    // FR uniquement
+  context: string,            // FR uniquement
+  objectives: string[],       // FR uniquement
+  features: string[],         // FR uniquement
   technologies: string[],
-  image: string,              // Path to /public/images/
+  image: string,              // chemin dans /public/images/
   githubLink: string,
   liveLink: string | null,
-  featured: boolean,          // Highlighted projects
-  teamSize?: number,          // Optional: for team projects
-  role?: string,              // Optional: role in team
-  duration?: string,          // Optional: project duration
-  methodology?: string        // Optional: dev methodology
+  featured: boolean,
+  en: {                       // traduction partielle
+    title: string,
+    shortDescription: string,
+    role?: string,
+    duration?: string,
+  },
+  privateRepo?: boolean,      // dépôt non public — affiche une mention dédiée
+  teamSize?: number,
+  role?: string,
+  duration?: string,
+  methodology?: string,
 }
 ```
 
-**Current Projects**: 9 projects (IDs 1-9) including web apps, ML projects, IoT systems.
+**La prose longue n'est volontairement pas traduite.** En anglais, `ProjectDetail.vue` affiche une mention l'annonçant et marque ces blocs `lang="fr"`.
+
+Deux helpers exportés — les utiliser plutôt que de lire `projects` directement dans un composant :
+
+- `localizedProject(project, locale)` — fusionne le bloc `en` par-dessus les champs français
+- `localizedProjects(locale)` — la version liste
+
+### Convention non devinable
+
+`Home.vue` n'affiche pas tous les projets ni les plus récents : l'ordre est **explicite** via
+
+```js
+const featuredOrder = [9, 8, 2, 3]  // Assistant Financier IA, ParkMR, TINA, GPFE
+```
+
+Les projets IA d'abord — c'est un choix de positionnement pour l'alternance, pas un tri technique. Le modifier change le message envoyé aux recruteurs.
 
 ---
 
-## SEO & Meta Tags
+## Design
 
-`index.html` includes comprehensive SEO:
-- Open Graph tags (Facebook/LinkedIn sharing)
-- Twitter Card metadata
-- Structured data (JSON-LD schema.org Person type)
-- `robots.txt` and `sitemap.xml` in `/public`
-- Canonical URLs
-- Bing and Google Search Console verification
+### Thème
 
-**When updating content**, remember to update:
-1. Meta descriptions in `index.html`
-2. `sitemap.xml` if adding new routes
-3. Structured data if profile info changes
+Palette claire minimaliste définie dans `tailwind.config.js` :
 
----
+| Token | Valeur | Usage |
+|---|---|---|
+| `dark` | `#0A0A0A` | Texte principal, fonds inversés |
+| `light` | `#FAFAFA` | Fond de page |
+| `accent` | `#1E40AF` | Bleu marine — liens, états actifs, focus |
+| `accent-dim` | `#1E3A8A` | Variante |
+| `grey.50` → `grey.900` | | Hiérarchie de texte et bordures |
 
-## Design Conventions
+**Polices** : `font-mono` = Space Mono (labels, nav, métadonnées) · `font-sans` = Manrope (titres, corps). Chargées depuis Google Fonts dans `index.html`.
 
-### Visual Style
+**Animations** : `animate-reveal`, `animate-slide-up`, `animate-fade-in`, `animate-draw-line`. Les entrées du hero sont décalées avec des `animation-delay` inline.
 
-**Theme**: Dark mode with blue-purple gradient accents
-**Design Philosophy**: Modern, clean, professional developer portfolio
-**Animations**: Smooth transitions, floating/glowing effects
+Le langage visuel repose sur des **filets fins** (`border-grey-200`), des grilles `md:grid-cols-12` (label sur 3 colonnes, contenu sur 9) et des libellés numérotés en monospace (`01 — À PROPOS`). Pas d'ombres, pas de dégradés, pas de coins arrondis.
 
-### Responsive Design
+> Le site utilisait auparavant un thème dark navy avec glassmorphism. Toute trace en a été retirée. Si du code réintroduit `glass`, `card-modern`, `accent-blue`, `text-text-primary` ou `shadow-glow`, c'est un reliquat : ces classes n'existent plus.
 
-Mobile-first approach. Tailwind breakpoints:
-- Base: Mobile (< 640px)
-- `sm:`: 640px+
-- `md:`: 768px+
-- `lg:`: 1024px+
-- `xl:`: 1280px+
+### Responsive
 
-### Component Patterns
-
-**SectionHeader.vue**: Reusable section title with gradient underline
-**ProjectCard.vue**: Grid item for project previews
-**Navbar.vue**: Sticky navigation with active route highlighting
-**Footer.vue**: Social links and copyright
+Mobile-first. Points de rupture Tailwind standard (`sm` 640, `md` 768, `lg` 1024, `xl` 1280). `md` est la bascule desktop de la Navbar (burger en dessous).
 
 ---
 
-## Common Development Tasks
+## SEO
 
-### Adding a New Project
+`index.html` porte le titre, la meta description, les balises Open Graph / Twitter Card, le JSON-LD `schema.org/Person`, la canonical et la vérification Bing.
 
-1. Add project object to `src/data/projects.js` (increment ID)
-2. Add project image to `public/images/` (PNG format recommended)
-3. Update `featured: true` if it should be highlighted
+`public/` contient `robots.txt`, `sitemap.xml`, `og-image.png` (1200×630) et `favicon.ico`.
 
-### Adding a New Page
+**En modifiant le contenu, penser à mettre à jour** :
+1. La meta description et le JSON-LD dans `index.html` si le positionnement change
+2. `sitemap.xml` si une route ou un projet est ajouté
+3. `og-image.png` si le titre ou l'accroche change
 
-1. Create Vue component in `src/pages/`
-2. Add route in `src/router/index.js`
-3. Add navigation link in `Navbar.vue` if needed
-4. Update `sitemap.xml` with new route
-
-### Modifying Tailwind Theme
-
-Edit `tailwind.config.js` to add colors, animations, or utility classes.
-Purging is automatic—Tailwind scans all Vue/JS/HTML files.
-
-### Testing Contact Form
-
-Requires valid EmailJS credentials in `.env`.
-Form in `src/pages/Contact.vue` uses `@emailjs/browser` package.
+Le sitemap ne doit lister que des routes réelles — pas d'URL redirigée vers `/`.
 
 ---
 
-## Content Language & Style
+## Images
 
-**Primary Language**: French
-**Code**: English variable/function names, French comments
-**UI Text**: French
-**Project Descriptions**: Detailed French descriptions with professional tone
+`public/images/` — captures de projets référencées par `projects.js`.
 
----
+`vite-plugin-image-optimizer` est branché dans `vite.config.js` et compresse ces fichiers **à la build uniquement** (les sources ne sont pas modifiées). Il dépend de `sharp` et `svgo` : sans eux, le build affiche des erreurs d'optimisation mais réussit quand même.
 
-## Public Assets
-
-Located in `/public/`:
-- `images/`: Project screenshots (1.png - 11.png, parkMR.png)
-- `CV Rodanim Ganaba.pdf`: Downloadable resume
-- `favicon.ico`: Site icon
-- `robots.txt`: Search engine directives
-- `sitemap.xml`: Site structure for SEO
-- `BingSiteAuth.xml`: Bing verification
+Éviter d'ajouter des images non référencées — elles sont déployées quand même.
 
 ---
 
-## Dependencies
+## Tâches courantes
 
-**Core**:
-- `vue` (3.5.22): Framework
-- `vue-router` (4.5.1): Routing
-- `@emailjs/browser` (4.4.1): Contact form email service
+### Ajouter un projet
 
-**Dev Dependencies**:
-- `vite` (7.1.7): Build tool
-- `@vitejs/plugin-vue` (6.0.1): Vue 3 support
-- `tailwindcss` (3.4.10): Utility-first CSS
-- `autoprefixer` (10.4.21): CSS vendor prefixing
-- `postcss` (8.5.6): CSS processing
-- `vite-plugin-image-optimizer` (2.0.2): Image optimization
+1. Ajouter l'objet dans `src/data/projects.js` (id suivant), **avec son bloc `en`**
+2. Déposer la capture dans `public/images/`
+3. Ajouter `https://rodanim-ganaba.netlify.app/project/<id>` dans `public/sitemap.xml`
+4. Mettre `featured: true` s'il doit apparaître sur `/projects` avec le badge
+5. Pour qu'il figure sur la page d'accueil, l'ajouter à `featuredOrder` dans `Home.vue`
 
----
+### Ajouter du texte visible
 
-## Browser Support
+1. Ajouter la clé dans `src/i18n/fr.js`
+2. Ajouter la même clé dans `src/i18n/en.js`
+3. L'utiliser via `t('namespace.cle')`
 
-Modern browsers with ES6+ support (Chrome, Firefox, Safari, Edge).
-No IE11 support (Vite doesn't support legacy browsers).
+### Ajouter une page
 
----
-
-## Performance Optimizations
-
-- Vite's code splitting for route-based lazy loading
-- Image optimization via Vite plugin
-- Tailwind CSS purging (production builds only include used classes)
-- Preconnect hints for external resources (fonts, CDNs)
-- Web history mode (no hash routing)
+1. Créer le composant dans `src/pages/`
+2. Déclarer la route dans `src/router/index.js`
+3. Ajouter le lien dans `Navbar.vue` (desktop **et** menu burger) et éventuellement `Footer.vue`
+4. Ajouter l'URL dans `public/sitemap.xml`
+5. Ne pas y remettre de `<footer>` : il est global
 
 ---
 
-## Notes for Future Development
+## Contenu et style
 
-- **State Management**: None currently. Add Pinia if complex state needed.
-- **Testing**: No test setup. Consider Vitest + Vue Test Utils if adding tests.
-- **TypeScript**: Not used. Could migrate to TS if type safety needed.
-- **i18n**: Currently French only. Add vue-i18n if multilingual support needed.
-- **API Integration**: Only EmailJS for contact form. No backend.
-
----
-
-## Git Workflow
-
-Current branch: `main`
-When making commits, use clear, concise messages in English or French.
+- **Langue de référence** : français. L'anglais suit.
+- **Code** : identifiants en anglais, commentaires en français.
+- **Ton** : professionnel, factuel, orienté résultats. Privilégier les chiffres vérifiables (« 86 recommandations correctes sur 100 ») aux formules vagues.
+- Ne pas gonfler le parcours : le contenu doit rester exact, un recruteur peut le recouper avec le CV et LinkedIn.
 
 ---
 
-## Contact & Support
+## État du projet
 
-**Site Owner**: Rodanim Ganaba
-**Email**: ganabarodanimkm@gmail.com
-**GitHub**: https://github.com/GANABA
-**LinkedIn**: https://www.linkedin.com/in/ganaba-r-melchis%C3%A9dech/
+- **Pas de gestion d'état** : aucun besoin à ce stade. Pinia si nécessaire un jour.
+- **Pas de tests, pas de TypeScript, pas de linter.**
+- **Pas de backend.** Le contact passe par des liens `mailto:` et `tel:` — il n'y a plus de formulaire.
+- `.env` et `.env.example` contiennent encore des clés **EmailJS inutilisées** : la dépendance `@emailjs/browser` et le formulaire ont été retirés. Vestige à nettoyer.
+- `src/assets/vue.svg` et `public/vite.svg` sont des restes du template Vite.
+
+---
+
+## Git
+
+Branche principale : `main` — **tout push déclenche un déploiement Netlify**.
+
+Travailler sur une branche par sujet (`chore/`, `feat/`, `docs/`), puis PR vers `main`. Messages de commit en français, à l'impératif, expliquant le *pourquoi* et pas seulement le *quoi*.
+
+---
+
+## Contact
+
+**Rodanim Ganaba** · ganabarodanimkm@gmail.com
+GitHub : https://github.com/GANABA · LinkedIn : https://www.linkedin.com/in/ganaba-r-melchis%C3%A9dech/
