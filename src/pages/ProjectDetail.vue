@@ -153,18 +153,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12 px-6 border-t border-grey-200">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-sm text-grey-500 font-mono">
-          © 2025 Rodanim Ganaba
-        </p>
-        <p class="text-sm text-grey-500 font-mono">
-          Développé avec Vue.js & Tailwind CSS
-        </p>
-      </div>
-    </footer>
-
   </div>
 
   <!-- Project Not Found -->

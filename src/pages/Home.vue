@@ -356,18 +356,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-8 sm:py-12 px-4 sm:px-6 border-t border-grey-200">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-center md:text-left">
-        <p class="text-xs sm:text-sm text-grey-500 font-mono">
-          © 2026 Rodanim Ganaba
-        </p>
-        <p class="text-xs sm:text-sm text-grey-500 font-mono">
-          Développé avec Vue.js & Tailwind CSS
-        </p>
-      </div>
-    </footer>
-
   </div>
 </template>
 
@@ -397,10 +385,3 @@ const handleProjectClick = (projectId) => {
   router.push(`/project/${projectId}`)
 }
 </script>
-
-<style scoped>
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-</style>
