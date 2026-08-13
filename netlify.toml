@@ -1,3 +1,16 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Vite 7 exige Node 20.19+ ou 22.12+ (il utilise crypto.hash, une API
+  # Node 20+). L'image de build Netlify fournit déjà Node 22, mais on
+  # l'épingle pour ne pas dépendre d'un défaut qui peut changer.
+  # sharp, requis par vite-plugin-image-optimizer, demande Node 18.17+.
+  NODE_VERSION = "22"
+
+# SPA : toutes les routes sont servies par index.html, le routage se fait
+# côté client (createWebHistory).
 [[redirects]]
   from = "/*"
   to = "/index.html"

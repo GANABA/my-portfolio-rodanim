@@ -4,12 +4,17 @@
 
       <!-- Logo + tagline -->
       <div class="flex items-center gap-3">
-        <div class="w-8 h-8 bg-dark flex items-center justify-center">
+        <div class="w-8 h-8 bg-dark flex items-center justify-center shrink-0">
           <span class="text-light font-mono font-bold text-sm">R</span>
         </div>
-        <p class="text-xs sm:text-sm text-grey-500 font-mono">
-          © {{ currentYear }} Rodanim Ganaba
-        </p>
+        <div>
+          <p class="text-xs sm:text-sm text-grey-500 font-mono">
+            © {{ currentYear }} Rodanim Ganaba
+          </p>
+          <p class="text-xs text-grey-400 font-mono">
+            Développé avec Vue.js &amp; Tailwind CSS
+          </p>
+        </div>
       </div>
 
       <!-- Navigation -->
